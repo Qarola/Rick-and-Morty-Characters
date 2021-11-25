@@ -1,0 +1,31 @@
+.about-ctn {
+    width: 80%;
+    height: 30rem;
+    margin: 2.5rem auto;
+   /*  background-color: rgba(255, 251, 251, 0.8); */
+    border-radius: 1rem;
+    border: 0.1rem solid rgba(255, 255, 255, 0.4);
+    color: rgb(243, 243, 243);
+     box-shadow: 0.2rem 0.2rem 1rem rgba(20, 20, 20, 0.8);
+  /*   background-image: url('../../img/flame-chili-sauce-food1.png'); */
+  
+  } 
+  .about-info {
+    width: 45%;
+    margin: 5% auto;
+    text-align: justify;
+    font-size: 20px;
+    color: black;
+   
+  }
+
+  .txt {
+    margin-inline-start: 30px;
+    font-size: 25px;
+    color: black;
+    margin-top: 35px;
+  }
+
+  hr{
+    width: 50%
+  }

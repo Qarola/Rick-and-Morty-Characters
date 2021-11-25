@@ -1,0 +1,172 @@
+.more-info {
+  margin-left: 500px;
+}
+
+.recp {
+  position: relative;
+  display: flexbox;
+  width: 22.5rem;
+  height: 30rem;
+  text-align: center;
+  margin: 2rem;
+  border-radius: 10px;
+  border: 0.1rem solid rgba(255, 255, 255, 0.4);
+  color: black;
+  box-shadow: 0.2rem 0.2rem 1rem rgba(20, 20, 20, 0.8);
+}
+
+.recp-info {
+  height: 23.3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center !important;
+  vertical-align: middle;
+  line-height: 15px;
+}
+
+.more-info {
+  position: absolute;
+  right: 4.2rem;
+  bottom: 0.75rem;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 0.2rem;
+  outline: none;
+  border: 0.5px solid rgba(227, 214, 72, 0.7);
+  padding: 0.2rem 0.3rem;
+  background-color: rgb(68, 96, 21);
+  color: white;
+}
+.more-info:hover {
+  cursor: pointer;
+  transform: scale(1.2);
+  border: 0.5px solid rgba(227, 214, 72, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
+  color: rgba(40, 40, 40, 0.7);
+  transition: all 0.5s linear;
+}
+h3 {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin: 25px;
+}
+
+.recp-name {
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center !important;
+  font-size: 20px;
+}
+
+.recp-img {
+  display: block;
+  position: absolute;
+  bottom: 3rem;
+  left: 15%;
+  border-radius: 1rem;
+  height: 12rem;
+  width: 70%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.diet-s {
+  text-align: center !important;
+  margin: left 1px;
+  display: flex;
+  justify-content: space-evenly;
+  margin-left: auto;
+  margin-right: auto;
+  width: 18em;
+  font-size: 15px;
+}
+.diets span {
+  margin: 0.5rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.3rem;
+  border: 0.5px solid rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 1000px) {
+  /*responsive*/
+  .recp {
+    height: 400px;
+  }
+  .recp-info {
+    font-size: 250px;
+  }
+
+  .recp-name {
+    font-size: 18px;
+  }
+  .recp-img {
+    font-size: 50px;
+  }
+  .diet-s {
+    font-size: 15px;
+  }
+  .diet span {
+    font-size: 15px;
+  }
+
+  .pagtn {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .recp {
+    height: 400px;
+  }
+  .recp-info {
+    font-size: 50px;
+  }
+
+  .recp-name {
+    font-size: 18px;
+  }
+  .recp-img {
+    font-size: 50px;
+  }
+  .diet-s {
+    font-size: 15px;
+  }
+  .diet span {
+    font-size: 20px;
+  }
+  .pagtn {
+    font-size: 25px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .recp {
+    height: 400px;
+  }
+  .recp-info {
+    font-size: 50px;
+  }
+
+  .recp-name {
+    font-size: 120px;
+  }
+  .recp-img {
+    font-size: 50px;
+  }
+  .diet-s {
+    font-size: 80px;
+  }
+  .diet {
+    font-size: 80px;
+  }
+
+  span {
+    font-size: 80px;
+  }
+
+  .pagtn {
+    font-size: 25px;
+  }
+}

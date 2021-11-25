@@ -1,0 +1,102 @@
+html {
+  font-size: 14px;
+}
+
+body {
+ 
+  text-align: center;
+  margin: 0;
+  font-family: 'Spartan', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: url('./img/mockup-graphic-small-unsplash.jpg')     /*,nordwood-themes-unsplash-1300.jpg */
+  no-repeat center center fixed;
+ 
+
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+
+@media screen and (max-width:1000px) { /*responsive*/
+  .lp {
+      height: 600px;
+  }
+  #info {
+      height: 100px;
+  }
+  .if {
+      height: 400px;
+  }
+  .welcome-btn {
+      height: 45px;
+  }
+  .link {
+      height: 400px;
+  }
+}
+
+@media screen and (max-width:800px){ /*responsive*/
+  .lp {
+      height: 650px;
+  }
+  #info {
+      height: 50px;
+  }
+  .if {
+      height: 550px;
+  }
+  .welcome-btn {
+      height: 50px;
+  }
+  .link {
+      height: 50px;
+  }
+}
+
+@media screen and (max-width:600px){ /*responsive*/
+  .lp {
+      height: 650px;
+  }
+  #info {
+      height: 35px;
+  }
+  .if {
+      height: 35px;
+  }
+  .welcome-btn {
+      height: 55px;
+  }
+  .link {
+      height: 55px;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+/* @media (max-width: 800px) {
+  body {
+    width: 350px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  body {
+    width: 550px;
+  }
+}
+ */

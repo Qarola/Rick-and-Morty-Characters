@@ -1,0 +1,157 @@
+.nav-b {
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 1rem 2rem;
+  font-size: 1.5rem;
+  background-image: linear-gradient(
+    97.3deg,
+    rgba(25, 50, 70, 0.81) 10.7%,
+    rgba(155, 65, 25, 0.72) 39.5%,
+    rgba(255, 192, 0, 0.81) 69.7%
+  );
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 4.5rem;
+}
+
+.logo img {
+  height: 150px;
+  width: 130px;
+}
+
+.links {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.link-ho,
+.link-ab,
+.link-fav,
+.link-addR {
+  margin: 0 1rem;
+  color: white;
+  text-decoration: none;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.link-ho:hover,
+.link-ab:hover,
+.link-fav:hover,
+.link-addR:hover,
+.Login:hover {
+  padding-bottom: 0.2rem;
+  transition: padding-bottom 0.3s linear;
+  border-bottom: 0.15rem solid rgba(0, 0, 0, 0.4);
+}
+
+.form {
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  width: 20rem;
+  display: flex;
+  margin-left: 550px;
+}
+
+.search-input {
+  border-radius: 0.3rem 0 0 0.3rem;
+  outline: none;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border: 0.1rem solid black;
+  border-right: none;
+}
+
+.search-submit-btn {
+  border: 0.1rem solid black;
+  border-left: none;
+  border-radius: 0 0.2rem 0.2rem 0;
+  outline: none;
+  padding: 0.5rem;
+}
+
+.search-submit-btn:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+@media screen and (max-width: 1000px) {
+  /*responsive*/
+  .nav-b {
+    height: 50px;
+  }
+  .links {
+    height: 10px;
+  }
+  .form {
+    height: 10px;
+  }
+  .search-input {
+    height: 10px;
+  }
+  .search-submit-btn {
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  /*responsive*/
+  .nav-b {
+    height: 50px;
+  }
+  .links {
+    height: 10px;
+  }
+  .form {
+    height: 10px;
+  }
+  .search-input {
+    height: 10px;
+  }
+  .search-submit-btn {
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  /*responsive*/
+  .nav-b {
+    height: 50px;
+  }
+  .links {
+    height: 10px;
+  }
+  .form {
+    height: 10px;
+  }
+  .search-input {
+    height: 10px;
+  }
+  .search-submit-btn {
+    height: 10px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  /*responsive*/
+  .nav-b {
+    height: 50px;
+  }
+  .links {
+    height: 10px;
+  }
+  .form {
+    height: 10px;
+  }
+  .search-input {
+    height: 10px;
+  }
+  .search-submit-btn {
+    height: 10px;
+  }
+}

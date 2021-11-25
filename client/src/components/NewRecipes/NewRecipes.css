@@ -1,0 +1,105 @@
+.newR {
+  width: 80%;
+  border-radius: 1rem;
+  border: 0.1rem solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0.2rem 0.2rem 1rem rgba(20, 20, 20, 0.8);
+  margin: 2.5rem auto;
+}
+
+.recipe-form {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 2rem auto;
+}
+
+.label-title {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: black;
+}
+
+.newRecipe-form {
+  display: flex;
+  flex-direction: column;
+}
+
+input.input-box,
+textarea {
+  background: white !important;
+  color: black;
+  border-radius: 15px;
+  border-color: white;
+  margin-left: 15px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  vertical-align: text-bottom;
+}
+
+.newRecipe-form label {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.newRecipe-form div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.newRecipe-form input {
+  padding: 0.5rem;
+}
+
+.newRecipe-form input,
+.newRecipe-form textarea {
+  background-color: transparent;
+  border-bottom: 1px solid black;
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  margin-bottom: 30px;
+  outline: none;
+  transition: 0.4s border;
+}
+
+.newRecipe-form textarea:hover,
+.newRecipe-form textarea:focus,
+.newRecipe-form textarea:hover,
+.newRecipe-form textarea:focus {
+  border: 1px dashed black;
+}
+
+.diets-submit-btn {
+  display: flex;
+  flex-direction: column;
+}
+
+.diets-label {
+  padding: 0.5rem 0;
+  color: black;
+  display: flex;
+  padding-right: 10px;
+  padding-left: 22px;
+  text-indent: -22px;
+  font-size: 16px;
+}
+
+.newRecipe-submit-btn {
+  margin: 1rem auto;
+  padding: 1rem 2rem;
+  border-radius: 15px;
+}
+
+label.diets-label {
+  position: relative;
+  vertical-align: middle;
+  bottom: 1px;
+}

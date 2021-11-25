@@ -1,0 +1,153 @@
+#filter-sort {
+  background-color: rgb(210,203,160); 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+.ord, .filt {
+    position: relative;
+    display: inline-block;
+   
+  }
+
+ .dropdown-btn {
+ background-color: rgb(210,203,160); 
+  outline: none;
+  color: black;
+  padding: 1rem;
+  margin: 0 1rem;
+  border: none;
+ }
+
+ .grid-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 2px;
+}
+
+.dropodown-btn:hover .dropdown-btn:focus {
+  outline: none;
+  border: none;
+  background-color: rgb(47,66,81);
+} 
+
+.ord button, .filt button {
+    width: 100%;
+    border: none;
+    color: black;
+    padding: 10px 12px;
+    display: block;
+    outline: none;
+  }
+
+.o, .f {
+  display:none;
+  position: absolute;
+ 
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1; 
+}
+
+
+.o button:hover, .f button:hover {
+  background-color:rgb(47,66,81);
+  
+}
+
+.ord:hover .dropdown-btn, .filt:hover .dropdown-btn  {
+    background-color: rgb(47,66,81);
+   
+  } 
+
+.ord:hover .o, .filt:hover .f {
+  display: block;
+  
+}
+
+
+
+
+
+
+
+
+/*#filter-sort {
+  background-color: rgb(215,215,214);  /*   rgb(205,206,109); 
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  opacity: 0.9; 
+}
+
+.ord, .filt {
+    position: relative;
+    display: inline-block;
+   
+  }
+
+ .dropdown-btn {
+  background-color: transparent;
+  color:rgb(117,26,139);
+  outline: none;
+  padding: 1rem;
+  margin: 0 1rem;
+  border: none;
+
+ }
+
+ .grid-search {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 2px;
+}
+
+.dropodown-btn:hover .dropdown-btn:focus {
+  outline: none;
+  border: none;
+  background-color: rgb(47,66,81);
+} 
+
+.ord button, .filt button {
+    width: 100%;
+    border: none;
+    color: rgb(117,26,139);
+    padding: 10px 12px;
+    display: block;
+    outline: none;
+  }
+
+.o, .f {
+  display:none;
+  position: absolute;
+ 
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 999;
+}
+
+
+.o button:hover, .f button:hover {
+  background-color: rgb(47,66,81);
+ 
+  
+}
+
+.ord:hover .dropdown-btn, .filt:hover .dropdown-btn  {
+    background-color: rgb(47,66,81);
+    
+   
+  } 
+
+.ord:hover .o, .filt:hover .f {
+  display: block;
+  
+}
+
+ */

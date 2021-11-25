@@ -1,0 +1,37 @@
+.pag {
+  width: 100%;
+  background-color:rgb(2,2,2);
+  display: flex;
+  justify-content: center ;
+  align-items: center;
+  
+  
+}
+
+.pag button {
+  font-size: 1.2rem;
+  background-color: rgb(2,2,2);
+  outline: none;
+  color: white;
+  padding: 1rem;
+  margin: 0 0.05rem;
+  border: none;
+}
+
+.pag button:hover{
+  outline: none;
+  border: none;
+  background-color: rgb(210,203,160); 
+}
+
+.pag button.active{
+background-color: rgb(37,37,37);
+
+}
+
+.pag-link {
+  text-decoration: none;
+  color: white;
+  cursor: default;
+  
+}
