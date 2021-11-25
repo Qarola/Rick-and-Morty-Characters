@@ -20,7 +20,7 @@ const getEpisodeByName = async (req, res) => {
           airDate: e.air_date,
           charactrs: e.characters?.map((el) => el),
         }));
-        console.log("soy la data:", filterResponse);
+        //console.log("soy la data:", filterResponse);
         res.status(200).json(filterResponse);
       }
     } catch (error) {
@@ -43,7 +43,7 @@ const getEpisodeByName = async (req, res) => {
             airDate: e.air_date,
             charactrs: e.characters?.map((el) => el),
         }));
-        console.log("soy la data:", filterResponse);
+        //console.log("soy la data:", filterResponse);
         res.status(200).json(filterResponse);
       }
     } catch (error) {

@@ -24,7 +24,7 @@ const getAllCharacters = async (req, res) => {
           image: c.image,
           episode: info.episode?.map((el) => el),
         }));
-        console.log("soy la data:", filterResponse);
+        //console.log("soy la data:", filterResponse);
         res.status(200).json(filterResponse);
       }
     } catch (error) {
@@ -50,7 +50,7 @@ const getAllCharacters = async (req, res) => {
           image: c.image,
           episode: info.episode?.map((el) => el),
         }));
-        console.log("soy la data:", filterResponse);
+        //console.log("soy la data:", filterResponse);
         res.status(200).json(filterResponse);
       }
     } catch (error) {

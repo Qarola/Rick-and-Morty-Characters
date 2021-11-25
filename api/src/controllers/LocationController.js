@@ -21,7 +21,7 @@ const getLocationByType = async (req, res) => {
           dimension: e.dimension,
           residents: e.residents?.map((el) => el),
         }));
-        console.log("soy la data:", filterResponse);
+        //console.log("soy la data:", filterResponse);
         res.status(200).json(filterResponse);
       }
     } catch (error) {
@@ -44,7 +44,7 @@ const getLocationByType = async (req, res) => {
           dimension: e.dimension,
           residents: e.residents?.map((el) => el),
         }));
-        console.log("soy la data:", filterResponse);
+        //console.log("soy la data:", filterResponse);
         res.status(200).json(filterResponse);
       }
     } catch (error) {
