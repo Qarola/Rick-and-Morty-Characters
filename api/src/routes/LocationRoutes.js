@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const { getLocationByType } = require('../controllers/LocationController');
+const { getLocations } = require('../controllers/LocationController');
 
 const router = Router();
 
 
-router.get("/", getLocationByType)
+router.get("/", getLocations)
 
 
 module.exports = router;

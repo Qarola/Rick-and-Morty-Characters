@@ -1,29 +1,35 @@
-const { Location } = require("../db");
+const { Location, Character } = require("../db");
 const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
 const { default: axios } = require("axios");
 
-
-const getLocationByType = async (req, res) => {
-  let { type } = req.query;
-  console.log(type, "this is a query");
-  if (type) {
+/* const getLocations = async (req, res) => {
+  try {
+    const locationDB = await Location.findAll({
+      include: Character
+    });
+    return res.status(200).json(locationDB);
+  } catch (error) {
+    console.log(error);
+    res.status(500);
+    return;
+  }
+};
+ */
+const getLocations = async (req, res) => {
+  let { name } = req.query;
+  console.log(name, "this is a query");
+  if (name) {
     try {
-      const apiRequest = await axios.get(
-        `https://rickandmortyapi.com/api/location/?type=${type}`
-      );
-      const responseApi = apiRequest.data.results;
-      let filterResponse;
-      if (responseApi.length > 0) {
-        filterResponse = responseApi.map((e) => ({
-          id: e.id,
-          name: e.name,
-          type: e.type,
-          dimension: e.dimension,
-          residents: e.residents?.map((el) => el),
-        }));
-        //console.log("soy la data:", filterResponse);
-        res.status(200).json(filterResponse);
-      }
+      let locationDb = await Location.findAll({
+        where: {
+          name: {
+            [Op.like]: `%${name}%`,
+          },
+         // include: Episode
+        },
+      });
+      return res.status(200).json(locationDb);
     } catch (error) {
       console.log(error);
       res.status(500);
@@ -31,22 +37,11 @@ const getLocationByType = async (req, res) => {
     }
   } else {
     try {
-      const apiRequest = await axios.get(
-        "https://rickandmortyapi.com/api/location"
-      );
-      const responseApi = apiRequest.data.results;
-      let filterResponse;
-      if (responseApi.length > 0) {
-        filterResponse = responseApi.map((e) => ({
-          id: e.id,
-          name: e.name,
-          type: e.type,
-          dimension: e.dimension,
-          residents: e.residents?.map((el) => el),
-        }));
-        //console.log("soy la data:", filterResponse);
-        res.status(200).json(filterResponse);
-      }
+      return await Location.findAll().then((data) => {
+        if (data !== null) {
+          res.status(200).send(data);
+        }
+      });
     } catch (error) {
       console.log(error);
       res.status(500);
@@ -54,60 +49,6 @@ const getLocationByType = async (req, res) => {
     }
   }
 };
-
 module.exports = {
-  getLocationByType,
+  getLocations,
 };
-
-
-/* const getLocationByType = async (req, res) => {
-  let { type } = req.query;
-  console.log(type, "this is a query");
-  if (type) {
-    try {
-      let urlApi = `https://rickandmortyapi.com/api/location/?type=${type}`;
-      await fetch(urlApi)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          // console.log(data.results)
-          const location = data.results;
-          let newResult = location.map((e) => ({
-            id: e.id,
-            name: e.name,
-            type: e.type,
-            dimension: e.dimension,
-            residents: e.residents?.map((el) => el),
-          }));
-          //console.log('soy episode:', episodes)
-          res.status(200).json(newResult);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  } else {
-    try {
-      let urlApi = "https://rickandmortyapi.com/api/location";
-      await fetch(urlApi)
-        .then((response) => {
-          return response.json();
-        })
-        .then((data) => {
-          // console.log(data.results)
-          const episodes = data.results;
-          let newResult = episodes.map((e) => ({
-            id: e.id,
-            name: e.name,
-            type: e.type,
-            dimension: e.dimension,
-            residents: e.residents?.map((el) => el),
-          }));
-          //console.log('soy episode:', episodes)
-          res.status(200).json(newResult);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  }
-}; */

@@ -1,10 +1,10 @@
 const { Router } = require('express');
-const { getEpisodeByName } = require('../controllers/EpisodeController');
+const { getEpisodes } = require('../controllers/EpisodeController');
 
 const router = Router();
 
 
-router.get("/", getEpisodeByName)
+router.get("/", getEpisodes)
 
 
 module.exports = router;

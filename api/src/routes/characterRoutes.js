@@ -7,4 +7,5 @@ const router = Router();
 router.get("/", getAllCharacters);
 router.get("/:id", getCharacterById);
 
+
 module.exports = router;

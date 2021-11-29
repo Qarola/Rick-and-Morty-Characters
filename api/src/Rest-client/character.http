@@ -4,7 +4,7 @@ GET http://localhost:3001/characters
 GET http://localhost:3001/characters?name=Rick
 
 ###
-GET http://localhost:3001/characters/3
+GET http://localhost:3001/characters/4
 
 ###
 GET  http://localhost:3001/episodes
@@ -16,10 +16,16 @@ GET  http://localhost:3001/episodes/?name=M. Night Shaym-Aliens!
 GET  http://localhost:3001/locations
 
 ###
-GET  http://localhost:3001/locations/?type=planet
+GET  http://localhost:3001/locations/?name=Earth
 
 ###
 GET https://rickandmortyapi.com/api/character
 
 ###
+GET https://rickandmortyapi.com/api/character/?page=1
+
+###
 GET https://rickandmortyapi.com/api/episode
+
+###
+GET https://rickandmortyapi.com/api/location/?page=3
