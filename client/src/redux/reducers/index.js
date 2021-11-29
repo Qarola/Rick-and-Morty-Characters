@@ -1,47 +1,65 @@
 const initialState = {
-  allRecipes: [],
-  allDiets: [],
-  searchedRecipes: [],
-  recipeDetail: {},
-  addRecipe: {},
+  allCharacters: [],
+  allEpisodes: [],
+  allLocations: [],
+  searchedCharacter: [],
+  searchedEpisode: [],
+  searchedLocation: [],
+  characterDetail: {},
+
 };
 
 export default function rootReducer(state = initialState, action) {
   switch (action.type) {
-    case "GET_ALL_RECIPES":
+    case "GET_ALL_CHARACTERS":
       return {
         ...state,
-        allRecipes: action.payload,
+        allCharacters: action.payload,
+        
       };
-    case "SEARCH_RECIPES":
+    case "SEARCH_CHARACTER":
       return {
         ...state,
-        searchedRecipes: action.payload,
+        searchedCharacter: action.payload,
       };
-    case "GET_RECIPE_DETAIL":
+    case "GET_CHARACTER_DETAIL":
       return {
         ...state,
-        recipeDetail: action.payload,
+        characterDetail: action.payload,
       };
-    case "ADD_RECIPE":
+    
+    case "GET_ALL_EPISODES":
       return {
         ...state,
-        addRecipe: action.payload,
+        allEpisodes: action.payload,
       };
+      case "GET_EPISODES_BY_NAME":
+      return {
+        ...state,
+        searchedEpisode: action.payload,
+      };
+      case "GET_ALL_LOCATIONS":
+      return {
+        ...state,
+        allLocations: action.payload,
+      };
+      case "GET_LOCATION_BY_TYPE":
+      return {
+        ...state,
+        searchedLocation: action.payload,
+      };
+      case "NEXT":
+        return {
+          ...state,
+          allCharacters: action.payload,
 
-    case "GET_ALL_DIETS":
-      return {
-        ...state,
-        allDiets: action.payload,
-      };
-      case "FILTER_BY_DIET":
-        const recipes = state.allRecipes
-        const filteredDiet = action.payload === "All" ? recipes : recipes.filter( e => e.diets.includes(action.payload))
-        return{
-            ...state,
-            allRecipes: filteredDiet
         };
+         case "PREV": 
+         return {
+          ...state,
+          allCharacters: action.payload,
 
+         };
     default:
       return state;
   }

@@ -1,23 +1,41 @@
 import React from "react";
-import NavBar from "./components/NavBar/NavBar.jsx";
-import LandingPage from "./components/LandingPage/LandingPage.jsx";
-import About from "./components/About/About.jsx";
-import Recipes from "./components/Recipes/Recipes.jsx";
-import NewRecipes from "./components/NewRecipes/NewRecipes.jsx";
-import RecipeDetail from "./components/RecipeDetail/RecipeDetail.jsx";
-import { Route } from "react-router-dom";
+//import { useSelector } from 'react-redux';
+import Characters from './components/Characters/Characters.jsx';
+import Header from './components/Header/Header.jsx';
+import CharacterDetail from './components/CharacterDetail/CharacterDetail.jsx';
+//import NoCharacterDetail from "./components/NoCharacterDetail/NoCharacterDetail.jsx";
+import Episodes from './components/Episodes/Episodes.jsx';
+import Locations from './components/Locations/Locations.jsx';
+import { Route } from "react-router-dom"; 
+
+import "./stylesheets/App.scss";
 
 function App() {
-  const routes = ["/home", "/about", "/recipes/:id", "/add"];
+/*   const charDetail = useSelector((state) => state.characterDetail)
+
+  const renderCharacterDetail = (routerProps) => {
+    const routerId = routerProps.match.params.id;
+    const characterFound = charDetail.find((character) => character.id === parseInt(routerId)
+    );
+    if(characterFound) {
+      return <CharacterDetail character={characterFound} />
+    } else {
+      return <NoCharacterDetail />
+    }
+  };
+   */
+  
   return (
     <div className="App">
-      <Route exact path="/" component={LandingPage} />
-      <Route path={routes} component={NavBar} />
-      <Route exact path={routes[0]} component={Recipes} />
-      <Route path={routes[1]} component={About} />
-      <Route path={routes[2]} component={RecipeDetail} />
-      <Route path={routes[3]} component={NewRecipes} />
-    </div>
+      <React.Fragment>
+      <Route exact path="/" component={Header} />
+      <Route exact path="/" component={Characters} />
+      <Route path="/characters/:id" component={CharacterDetail} />      {/*    render={renderCharacterDetail} /> */}
+      <Route path="/episodes" component={Episodes} />
+      <Route path="/locations" component={Locations} /> 
+    </React.Fragment>
+    </div>  
+
   );
 }
 

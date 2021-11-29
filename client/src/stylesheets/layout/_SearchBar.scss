@@ -1,0 +1,58 @@
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid rgb(58, 90, 64);
+  @media all and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 50px;
+    background: black;
+  }
+  @media all and (min-width: 1200px) {
+    display: flex;
+    flex-direction: row;
+  }
+  &__label {
+    color: #91cdee;
+    text-align: center;
+    display: block;
+    margin: 12px;
+    font-size: 18px;
+    @media all and (min-width: 768px) {
+      text-align: left;
+    }
+  }
+  &__input {
+    color: rgb(47, 62, 70);
+    display: block;
+    margin-top: 10px;
+    margin-right: 10px;
+    width: 250px;
+    height: 40px;
+    padding: 10px;
+    border-radius: 3px;
+    text-decoration: none;
+    background-color: white;
+    cursor: pointer;
+  }
+  &__reset {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 10px;
+    color: rgb(47, 141, 125);
+    cursor: pointer;
+    margin-top: 40px;
+    @media all and (min-width: 1200px) {
+      margin-top: 0px;
+    }
+  }
+}

@@ -1,16 +1,18 @@
 import axios from "axios";
 
-export function getAllRecipes() {
+export function getAllCharacters() {
   return function (dispatch) {
     axios
-      .get("http://localhost:3001/home")
+      .get("http://localhost:3001/characters")
 
       .then((res) => {
         console.log(res);
         dispatch({
-          type: "GET_ALL_RECIPES",
-          payload: res.data,
+          type: "GET_ALL_CHARACTERS",
+          payload: res.data
+          
         });
+       
       })
       .catch((err) => {
         console.error(err);
@@ -18,14 +20,14 @@ export function getAllRecipes() {
   };
 }
 
-export function searchRecipes(recipe) {
-  if (recipe !== "") {
+export function searchCharacter(name) {
+  if (name !== "") {
     return function (dispatch) {
       axios
-        .get(`http://localhost:3001/recipes?name=${recipe}`)
+        .get(`http://localhost:3001/characters?name=${name}`)
         .then((res) =>
           dispatch({
-            type: "SEARCH_RECIPES",
+            type: "SEARCH_CHARACTER",
             payload: res.data,
           })
         )
@@ -35,52 +37,19 @@ export function searchRecipes(recipe) {
     };
   } else {
     return {
-      type: "SEARCH_RECIPES",
+      type: "SEARCH_CHARACTER",
       payload: [],
     };
   }
 }
 
-export function getRecipeDetail(id) {
+export function getCharacterDetail(id) {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/recipes/${id}`)
+      .get(`http://localhost:3001/characters/${id}`)
       .then((res) =>
         dispatch({
-          type: "GET_RECIPE_DETAIL",
-          payload: res.data,
-        })
-      )
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-}
-
-export function addRecipe({ name, summary, healthScore, stepByStep, diets }) {
-  return function (dispatch) {
-    const Recipe = { name, summary, healthScore, stepByStep, diets };
-    axios
-      .post("http://localhost:3001/recipe", Recipe)
-      .then((res) =>
-        dispatch({
-          type: "ADD_RECIPE",
-          payload: res.data,
-        })
-      )
-      .catch((err) => {
-        console.error(err);
-      });
-  };
-}
-
-export function getAllDiets() {
-  return function (dispatch) {
-    axios
-      .get("http://localhost:3001/types")
-      .then((res) =>
-        dispatch({
-          type: "GET_ALL_DIETS",
+          type: "GET_CHARACTER_DETAIL",
           payload: res.data,
         })
       )
@@ -91,9 +60,78 @@ export function getAllDiets() {
 }
 
 
-export function filterRecipesByDiet(payload){
-  return {
-      type: "FILTER_BY_DIET",
-      payload
-  }
+
+export function getAllEpisodes() {
+  return function (dispatch) {
+    axios
+      .get("http://localhost:3001/episodes")
+      .then((res) =>
+        dispatch({
+          type: "GET_ALL_EPISODES",
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 }
+
+export function getEpisodesByName(name) {
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:3001/episodes?name=${name}`)
+      .then((res) =>
+        dispatch({
+          type: "GET_EPISODES_BY_NAME",
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+}
+
+export function getAllLocations() {
+  return function (dispatch) {
+    axios
+      .get("http://localhost:3001/locations")
+      .then((res) =>
+        dispatch({
+          type: "GET_ALL_LOCATIONS",
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+}
+
+
+export function getLocationByType(type) {
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:3001/location?type=${type}`)
+      .then((res) =>
+        dispatch({
+          type: "GET_LOCATION_BY_TYPE",
+          payload: res.data,
+        })
+      )
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+}
+
+export const next = (payload) => ({
+  type: "NEXT",
+  payload
+})
+
+export const prev = (payload) => ({
+  type: "PREV",
+  payload
+})
