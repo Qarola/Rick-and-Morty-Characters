@@ -2,13 +2,16 @@
 
 ![home]()
 
-```
 `Backend` 
+```
     PostgreSQL, Sequelize and Express
+```
 
 `Frontend` 
+```
     React, Redux, Sass
 ```
+
 
 
 
