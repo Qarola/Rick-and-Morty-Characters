@@ -25,8 +25,8 @@ const { default: axios } = require("axios");
 conn.sync({ force: false }).then(() => {
   //=================>> DESCOMENTAR PARA CARGAR LA DB <<<=========================//
 
-/*  
-  axios.get("https://rickandmortyapi.com/api/character) // /?page=2")
+ /*
+  axios.get("https://rickandmortyapi.com/api/character") ///?page=2"
   .then((res) => {
     let response = res.data.results.map((c) => {
       Character.create({
@@ -40,12 +40,12 @@ conn.sync({ force: false }).then(() => {
         episode: c.episode.length, //c.episode?.map((el) => el), 
       });
     });
-  });   */
+  });  
 
     //=================>>DESPUÉS DESCOMENTAR PARA CARGAR LA DB <<<=========================//
 
 
-/*   axios.get("https://rickandmortyapi.com/api/episode) // /?page=2")
+/*   axios.get("https://rickandmortyapi.com/api/episode") // /?page=2")
   .then((res) => {
     let response = res.data.results.map((c) => {
       Episode.create({
