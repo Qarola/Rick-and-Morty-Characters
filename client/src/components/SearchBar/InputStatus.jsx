@@ -1,12 +1,12 @@
 import React, {useState } from 'react';
 import {  useDispatch } from 'react-redux';
-import { getEpisodesByName } from '../../redux/actions';
+import { searchharacter } from '../../redux/actions';
 import { RiSearch2Line } from 'react-icons/ri';
  
 
-const InputEpisode = (props) => {
+const InputStatus = (props) => {
    const dispatch = useDispatch();
-  const [episode, setEpisode] = useState('');
+  const [status, setStatus] = useState('');
 
 
    const handleInputChangeEpisode = (e) => {

@@ -6,18 +6,18 @@ import { RiSearch2Line } from 'react-icons/ri';
 
 const InputChar = (props) => {
     const dispatch = useDispatch();
-    const [nameChar, setNameChar] = useState('');
+    const [name, setName] = useState('');
    
     const handleInputChangeChar = (e) => {
-      setNameChar(e.target.value)
+      setName(e.target.value)
    
     }
  
     const handleSubmitChar = (e) => {
      e.preventDefault();
      //props.searchCharacter(nameChar)
-     dispatch(searchCharacter(nameChar))
-     setNameChar('');
+     dispatch(searchCharacter(name))
+     setName('');
     }
  
  
@@ -29,7 +29,7 @@ const InputChar = (props) => {
            type="text"
            name="name"
            placeholder="Search by character name..."
-           value={nameChar}
+           value={name}
            onChange={handleInputChangeChar}
            className="form__input"
          />

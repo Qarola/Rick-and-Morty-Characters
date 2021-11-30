@@ -1,159 +1,84 @@
 import React from 'react';
-import InputChar from './InputChar';
-//import InputEpisode from './InputEpisode';
-//import InputLocation from './InputLocation';
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { searchCharacter } from '../../redux/actions';
 
 const SearchBar = (props) => {
+  const [name, setName] = useState('');
+  const [status, setStatus] = useState('');
+  const [gender, setGender] = useState('');
 
+  const dispatch = useDispatch();
   
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(searchCharacter(name))
+  }
+
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    props.setFillter({
+      name,
+      status,
+      gender
+    })
+  };
+
+  const onClear = () => {
+    setName('');
+    setStatus('');
+    setGender('');
+
+    props.setFilter({
+      name,
+      status,
+      gender
+    })
+  };
+ 
   return (
-    <form className="form">
-      <InputChar />
-     {/*  <InputEpisode />
-      <InputLocation /> */}
-    </form>
-  );
-      
+   <div className='form'>
+     <input className='input-name'
+     key={props.name}
+        type='text'
+        placeholder='Search by character name'
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        onSubmit={handleSubmit}
+     />
+     <select className='dropdown'
+     placeholder='Search by character status'
+     value={status}
+     onChange={(e) => setStatus(e.target.value)}
+     onSubmit={onSubmit}
+     >
+        <otionn value='Search by status'>Search by status</otionn>
+       <option value='Alive'>Alive</option>
+       <option value='Dead'>Dead</option>
+       <option value='unknown'>Unknown</option>
+     </select>
+    <select className='dropdown'
+    placeholder='Search by character gender'
+    value={gender}
+    onChange={(e) => setGender(e.target.value)}
+    onSubmit={onSubmit}
+    >
+        <otionn value='Search by gender'>Search by gender</otionn>
+       <otionn value='Male'>Male</otionn>
+      <option value='Female'>Female</option>
+      <option value='Unknown'>Unknown</option>
+    </select>
+    <button className='btn-clear'
+    type='submit'
+    onClick={onClear}
+    > Filter
+    </button>
+   </div>
+  )
 }
 export default SearchBar;
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* import React, {useState } from 'react';
-import {  useDispatch } from 'react-redux';
-import { searchCharacter, getEpisodesByName, getLocationByType  } from '../../redux/actions';
-import Reset from '../Reset/Reset';
-import { RiSearch2Line } from 'react-icons/ri';
- 
-
-const SearchBar = (props) => {
-   const dispatch = useDispatch();
-   const [nameChar, setNameChar] = useState('');
-  const [episode, setEpisode] = useState('');
-  const [location, setLocation] = useState('');
-
-   const handleInputChangeChar = (e) => {
-     setNameChar(e.target.value)
-  
-   }
-
-   const handleSubmitChar = (e) => {
-    e.preventDefault();
-    dispatch(searchCharacter(nameChar))
-    setNameChar('');
-   }
-
-
-   const handleInputChangeEpisode = (e) => {
-    e.preventDefault();
-    setEpisode(e.target.value)
-    console.log(episode) 
-   }
-
-   const handleClickEpisode = (e) => {
-    e.preventDefault();
-    dispatch(getEpisodesByName(episode))
-    setEpisode('')
-   }
-
-   const handleInputChangeLocation = (e) => {
-    e.preventDefault();
-    setLocation(e.target.value)
-    console.log(location)
-   }
-
-
-   const handleClickLocation = (e) => {
-    e.preventDefault();
-    dispatch(getLocationByType(location))
-    setLocation('')
-   } 
-
-   const resetInputs = () => {
-     setNameChar('');
-     setEpisode('');
-     setLocation('')
-   }
-
-
-  return (
-    <form className="form">
-      <label htmlFor="name" className="form__label">
-       {/*  Search by characters name *
-        <input
-          type="text"
-          name="name"
-          placeholder="Search by character name..."
-          value={props.name}
-          onChange={handleInputChangeChar}
-          className="form__input"
-        />
-         <button className='btn' type="submit" onSubmit={handleSubmitChar}>
-           <RiSearch2Line />
-         </button>
-       </label>
-      <label htmlFor="name" className="form__label">
-     
-        <input
-          type="text"
-          name="name"
-          id='name'
-          placeholder="Search by character name..."
-          value={props.name}
-          onChange={handleInputChangeEpisode}
-          className="form__input"
-        />
-         <button className='btn' type="submit" onClick={handleClickEpisode}>
-           <RiSearch2Line />
-         </button>
-      </label>
-      <label htmlFor="name" className="form__label">
-
-        <input
-          type="text"
-          name="type"
-          id='name'
-          placeholder="Search by character name..."
-          value={props.type}
-          onChange={handleInputChangeLocation}
-          className="form__input"
-        />
-         <button className='btn' type="submit" onClick={handleClickLocation}>
-           <RiSearch2Line />
-         </button> 
-      </label>
-      <Reset resetInputs={resetInputs} />
-    </form>
-  );
-      
-}
-export default SearchBar; */

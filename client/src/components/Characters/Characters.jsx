@@ -2,20 +2,24 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Pagination from "../Pagination/Pagination";
+// eslint-disable-next-line 
 import {getAllCharacters, searchCharacter} from "../../redux/actions/index.js";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import NoResult from "../NoResult/NoResult";
-//import SearchBar from "../SearchBar/SearchBar";
-import InputChar from "../SearchBar/InputChar";
+import SearchBar from "../SearchBar/SearchBar";
 
-//import ls from '../../services/LocalStorage'
 
 const Characters = (props) => {
   const dispatch = useDispatch();
   const allCharacters = useSelector((state) => state.allCharacters);
- // const searchedCharacter = useSelector((state) => state.searchedCharacter);
-  //const allEpisodes = useSelector((state) => state.allEpisodes);
- // const allLocations = useSelector((state) => state.allLocations);
+
+  const initialFilter = {
+    name: '',
+    status: '',
+    gender: '',
+  }
+  // eslint-disable-next-line 
+  const [filter, setFilter] = useState({initialFilter})
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
   const [charPerPage] = useState(15);
@@ -29,18 +33,11 @@ const Characters = (props) => {
   const [chars, setChars] = useState([]);
 
   useEffect(() => {
-    dispatch(getAllCharacters());
-    if(props.searchedCharacter?.length > 0) {
-      setChars(props.searchedCharacter)
-  } if (!props.searchedCharacter) {
-    setChars(allCharacters)
-  } else {
-    return searchCharacter("")
-  }
+    dispatch(getAllCharacters())
   
-  }, [allCharacters, dispatch, props.searchedCharacter]);
+  }, [dispatch]);
 
- /*  useEffect(() => {
+ /* useEffect(() => {
     if(props.searchedCharacter?.length > 0) {
         setChars(props.searchedCharacter)
     } else {
@@ -50,8 +47,8 @@ const Characters = (props) => {
  
    useEffect(() => {
      return  searchCharacter("")
-   }, [])
- */
+   }, []) */
+
  const filterChars = allCharacters.filter((char) => {
     return char.name.toLowerCase() //.includes(nameChar.toLowerCase());
   });
@@ -73,9 +70,9 @@ const Characters = (props) => {
 
   return (
     <div>
+       <SearchBar  setFilter={setFilter}/> 
+       
       <div className="characters">
-     {/*   <SearchBar />  */}
-       <InputChar />
         <ul>
           {currentChar &&
             currentChar.map((e) => (

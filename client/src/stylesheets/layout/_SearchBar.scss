@@ -12,13 +12,13 @@
     flex-direction: row;
     flex-wrap: wrap;
     padding-bottom: 50px;
-    background: black;
+   /*  background: black; */
   }
   @media all and (min-width: 1200px) {
     display: flex;
     flex-direction: row;
   }
-  &__label {
+  &__dropdown {
     color: #91cdee;
     text-align: center;
     display: block;
@@ -28,11 +28,11 @@
       text-align: left;
     }
   }
-  &__input {
+  &__input-name {
     color: rgb(47, 62, 70);
     display: block;
     margin-top: 10px;
-    margin-right: 10px;
+    margin-right: 15px;
     width: 250px;
     height: 40px;
     padding: 10px;
@@ -41,7 +41,7 @@
     background-color: white;
     cursor: pointer;
   }
-  &__reset {
+  &__btn-clear {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -55,4 +55,5 @@
       margin-top: 0px;
     }
   }
-}
+} 
+

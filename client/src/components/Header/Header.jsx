@@ -1,13 +1,13 @@
 import React from 'react';
-import logo from '../../img/letras.jpg';
-import {Link} from 'react-router-dom';
+import logo from '../../img/rick-and-morty-31015.png';
+//import {Link} from 'react-router-dom';
 
 function Header() {
   return (
     <header className="header">
-      <Link to="/">
+    {/*   <Link to="/"> */}
         <img className="header__image" src={logo} alt="logo rick and morty" />
-      </Link>
+     {/*  </Link> */}
     </header>
   );
 }

@@ -9,8 +9,12 @@ $colorDarkBlue: #5b9fa8;
 
 .char {
   display: flex;
-  flex-direction: column;
+  flex-direction:row;
   align-items: left;
+  background: white;
+  grid-template-rows: auto 1fr auto auto;
+  width: 300px;
+  padding-bottom: 15px;
 
   @include tablet() {
     padding: 25px;
@@ -52,9 +56,17 @@ $colorDarkBlue: #5b9fa8;
         padding: 15px;
         &-name {
           font-size: 1rem;
+          color: $colorBlack;
         }
+      }
+      &-card {
+        color: white;
+      }
+      &-more-info {
+        border-radius: 11px;
       }
     }
   }
 }
+
 

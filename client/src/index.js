@@ -6,9 +6,10 @@ import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 import "./stylesheets/App.scss";
+import './index.css'
 
 ReactDOM.render(
-  <div>
+  <div className='color'>
     <Provider store={store}>
       <BrowserRouter>
         <App />

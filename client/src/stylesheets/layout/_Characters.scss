@@ -7,10 +7,13 @@ $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
 
 
-.character {
-  display: flex;
-  flex-direction: column;
+.characters {
+  display: grid;
+  flex-direction: row;
   align-items: center;
+  grid-template-rows: auto 1fr auto auto;
+  width: 300px;
+  padding-bottom: 15px;
 
   @include tablet() {
     padding: 25px;
@@ -21,7 +24,7 @@ $colorDarkBlue: #5b9fa8;
   }
   @include desktop() {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+/*     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
   }
   &__li {
     border-radius: 15px;
@@ -53,6 +56,9 @@ $colorDarkBlue: #5b9fa8;
         &-name {
           font-size: 1rem;
         }
+      }
+      &-Link {
+        color:$colorBlack;
       }
     }
   }

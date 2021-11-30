@@ -6,6 +6,7 @@ import CharacterDetail from './components/CharacterDetail/CharacterDetail.jsx';
 //import NoCharacterDetail from "./components/NoCharacterDetail/NoCharacterDetail.jsx";
 import Episodes from './components/Episodes/Episodes.jsx';
 import Locations from './components/Locations/Locations.jsx';
+//import SearchBar from "./components/SearchBar/SearchBar.jsx";
 import { Route } from "react-router-dom"; 
 
 import "./stylesheets/App.scss";
@@ -29,7 +30,8 @@ function App() {
     <div className="App">
       <React.Fragment>
       <Route exact path="/" component={Header} />
-      <Route exact path="/" component={Characters} />
+{/*       <Route path='/' component={SearchBar} />
+ */}      <Route exact path="/" component={Characters} />
       <Route path="/characters/:id" component={CharacterDetail} />      {/*    render={renderCharacterDetail} /> */}
       <Route path="/episodes" component={Episodes} />
       <Route path="/locations" component={Locations} /> 
