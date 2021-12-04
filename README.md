@@ -4,6 +4,19 @@
 
 
 
-  This Rick and Morty Characters web app is an application Full-Stack. 
-  It has been built with ReactJS, SASS, Redux, Express, Sequelize, and PostgreSQL.
+## This web app was built with the following technologies:
+
+`Backend` 
+```
+    PostgreSQL, Sequelize and Express
+```
+
+`Frontend` 
+```
+    React, Redux, Sass
+```
+
+
+
+
   
