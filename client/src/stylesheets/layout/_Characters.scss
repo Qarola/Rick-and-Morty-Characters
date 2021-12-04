@@ -6,8 +6,10 @@ $colorGreen: #59a644;
 $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
 
-
-.characters {
+.grid-card { 
+  display: flex;
+  flex-direction: column;
+ .characters {
   display: grid;
   flex-direction: row;
   align-items: center;
@@ -62,4 +64,5 @@ $colorDarkBlue: #5b9fa8;
       }
     }
   }
+}
 }

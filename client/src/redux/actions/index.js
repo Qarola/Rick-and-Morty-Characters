@@ -110,10 +110,10 @@ export function getAllLocations() {
 }
 
 
-export function getLocationByType(type) {
+export function getLocationByType(name) {
   return function (dispatch) {
     axios
-      .get(`http://localhost:3001/location?type=${type}`)
+      .get(`http://localhost:3001/location?name=${name}`)
       .then((res) =>
         dispatch({
           type: "GET_LOCATION_BY_TYPE",
@@ -126,7 +126,7 @@ export function getLocationByType(type) {
   };
 }
 
-export const next = (payload) => ({
+/* export const next = (payload) => ({
   type: "NEXT",
   payload
 })
@@ -134,4 +134,4 @@ export const next = (payload) => ({
 export const prev = (payload) => ({
   type: "PREV",
   payload
-})
+}) */
