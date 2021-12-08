@@ -8,12 +8,12 @@
 
 `Backend` 
 ```
-    PostgreSQL, Sequelize and Express
+    PostgreSQL, Sequelize and Express.js
 ```
 
 `Frontend` 
 ```
-    React, Redux, Sass
+    ReactJS, Redux, Sass
 ```
 
 
