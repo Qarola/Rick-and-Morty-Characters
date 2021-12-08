@@ -9,13 +9,18 @@ $colorDarkBlue: #5b9fa8;
 .grid-card { 
   display: flex;
   flex-direction: column;
+  justify-content:space-between;
+ 
  .characters {
   display: grid;
+  justify-content: space-around;
   flex-direction: row;
   align-items: center;
   grid-template-rows: auto 1fr auto auto;
   width: 300px;
   padding-bottom: 15px;
+  margin-left: 21.5rem;
+  
 
   @include tablet() {
     padding: 25px;

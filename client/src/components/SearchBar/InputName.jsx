@@ -1,4 +1,4 @@
-import React, {useState } from 'react';
+import React, { useState } from 'react';
 import {  useDispatch } from 'react-redux';
 import { searchCharacter  } from '../../redux/actions/index';
 import { RiSearch2Line } from 'react-icons/ri';
@@ -8,8 +8,7 @@ const InputChar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
 
-    //const searching = useSelector((state) => state.searchedCharacter)
-   
+
     const handleInputChangeChar = (e) => {
       e.preventDefault();
       setName(e.target.value)
@@ -18,8 +17,7 @@ const InputChar = () => {
  
     const handleSubmitChar = (e) => {
      e.preventDefault();
-     //props.searchCharacter(nameChar)
-     dispatch(searchCharacter(name))
+      dispatch(searchCharacter(name))
      setName('');
     }
  

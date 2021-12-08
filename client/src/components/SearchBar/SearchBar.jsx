@@ -1,33 +1,34 @@
-import React from "react";
+import React from 'react';
+//import { Link } from 'react-router-dom'
+//import  { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+//import {useSelector } from "react-redux";
 import { searchCharacter } from "../../redux/actions";
 import { RiSearch2Line } from 'react-icons/ri';
+//import InputChar from "./InputName";
+//import DropdownStatus from "./InputStatus";
 
 const SearchBar = (props) => {
+  const dispatch = useDispatch();
+
   const [name, setName] = useState("");
+  //const [foundChars, setFoundChars] = useState(searchedChar)
   const [status, setStatus] = useState("");
   const [gender, setGender] = useState("");
 
-  const dispatch = useDispatch();
   
-  //const searchedChar = useSelector((state) => state.searchedCharacter);
 
- const handleInputChange = (e) => {
+  const handleInputChangeChar = (e) => {
     e.preventDefault();
     setName(e.target.value)
   }
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    dispatch(searchCharacter(name));
-   
-  };
- 
-  /* const searchChar = searchedChar.find((char) => {
-    return char.name.toLowerCase()
-  }) */
 
+  
+  const handleSubmitChar = (e) => {
+   e.preventDefault();
+    dispatch(searchCharacter(name))
+  }
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -60,12 +61,12 @@ const SearchBar = (props) => {
         type="text"
         placeholder="Search by character name"
         value={name}
-        onChange={handleInputChange}
+        onChange={(e) => handleInputChangeChar(e)}
         className="input-name"
       />
       <button className='btn-search' 
       type='submit'
-      onSubmit={handleSubmit}><RiSearch2Line /> {/* 🔍 */}
+      onClick={(e) => handleSubmitChar(e)}><RiSearch2Line /> {/* 🔍 */}
       </button>
        </form>
       <select

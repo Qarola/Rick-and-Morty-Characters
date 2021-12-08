@@ -7,12 +7,13 @@ import Pagination from "../Pagination/Pagination";
 import { getAllCharacters } from "../../redux/actions/index.js";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import NoResult from "../NoResult/NoResult";
-//import SearchBar from "../SearchBar/SearchBar";
-import InputChar from "../SearchBar/InputName";
+import SearchBar from "../SearchBar/SearchBar";
+
 
 const Characters = (props) => {
   const dispatch = useDispatch();
   const allCharacters = useSelector((state) => state.allCharacters);
+  const searchedChar = useSelector((state) => state.searchedCharacter);
 
   useEffect(() => {
     dispatch(getAllCharacters());
@@ -25,10 +26,10 @@ const Characters = (props) => {
   };
   // eslint-disable-next-line
   const [filter, setFilter] = useState({ initialFilter });
-  
+
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const [charPerPage] = useState(15);
+  const [charPerPage] = useState(9);
 
   const indexOfLastChar = currentPage * charPerPage;
   const indexOfFirstChar = indexOfLastChar - charPerPage;
@@ -47,29 +48,48 @@ const Characters = (props) => {
     }
   };
 
- 
   return (
     <div className="grid-card">
-     {/*  <SearchBar setFilter={setFilter} /> */}
-     <InputChar />
-      <div className="characters">
-        <ul>
-          {currentChar &&
-            currentChar.map((e) => (
-              <Link key={e.id} to={`/characters/${e.id}`}>
-                <CharacterCard
-                  key={e.id}
-                  image={e.image}
-                  name={e.name}
-                  status={e.status}
-                  specie={e.specie}
-                  gender={e.gender}
-                  location={e.location}
-                />
-              </Link>
-            ))}
-        </ul>
+      <SearchBar setFilter={setFilter} />
+      <div className="chars-list">
+        {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
+          searchedChar.map((e) => (
+            <Link key={e.id} to={`/characters/${e.id}`}>
+            <li key={e.id + e.name} className="chararacters">
+              <CharacterCard
+                key={e.id}
+                image={e.image}
+                name={e.name}
+                status={e.status}
+                specie={e.specie}
+                gender={e.gender}
+                location={e.location}
+              />
+            </li>
+            </Link>
+          ))
+        ) : (
+          <div className="characters">
+            <li className="characters">
+              {currentChar &&
+                currentChar.map((e) => (
+                  <Link key={e.id} to={`/characters/${e.id}`}>
+                    <CharacterCard
+                      key={e.id}
+                      image={e.image}
+                      name={e.name}
+                      status={e.status}
+                      specie={e.specie}
+                      gender={e.gender}
+                      location={e.location}
+                    />
+                  </Link>
+                ))}
+            </li>
+          </div>
+        )}
       </div>
+
       <div className="optionalMessage">{optionalMessage()}</div>
       <Pagination
         className="pagination"
