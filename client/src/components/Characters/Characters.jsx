@@ -7,7 +7,8 @@ import Pagination from "../Pagination/Pagination";
 import { getAllCharacters } from "../../redux/actions/index.js";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import NoResult from "../NoResult/NoResult";
-import SearchBar from "../SearchBar/SearchBar";
+//import SearchBar from "../SearchBar/SearchBar";
+import InputChar from "../SearchBar/InputName";
 
 const Characters = (props) => {
   const dispatch = useDispatch();
@@ -46,10 +47,11 @@ const Characters = (props) => {
     }
   };
 
+ 
   return (
     <div className="grid-card">
-      <SearchBar setFilter={setFilter} />
-
+     {/*  <SearchBar setFilter={setFilter} /> */}
+     <InputChar />
       <div className="characters">
         <ul>
           {currentChar &&

@@ -4,11 +4,14 @@ import { searchCharacter  } from '../../redux/actions/index';
 import { RiSearch2Line } from 'react-icons/ri';
 
 
-const InputChar = (props) => {
+const InputChar = () => {
     const dispatch = useDispatch();
     const [name, setName] = useState('');
+
+    //const searching = useSelector((state) => state.searchedCharacter)
    
     const handleInputChangeChar = (e) => {
+      e.preventDefault();
       setName(e.target.value)
    
     }
@@ -30,10 +33,10 @@ const InputChar = (props) => {
            name="name"
            placeholder="Search by character name..."
            value={name}
-           onChange={handleInputChangeChar}
+           onChange={(e) => handleInputChangeChar(e)}
            className="form__input"
          />
-          <button className='btn' type="submit" value='search' onSubmit={handleSubmitChar}>
+          <button className='btn' type="submit" onClick={(e) => handleSubmitChar(e)}>
             <RiSearch2Line />
           </button>
         </label>
