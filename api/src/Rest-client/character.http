@@ -4,7 +4,13 @@ GET http://localhost:3001/characters
 GET http://localhost:3001/characters?name=Rick
 
 ###
-GET http://localhost:3001/characters/4
+GET http://localhost:3001/charbystatus?status=unknown
+
+###
+GET http://localhost:3001/charbyGender?gender=female
+
+###
+GET http://localhost:3001/characters/3
 
 ###
 GET  http://localhost:3001/episodes
@@ -20,6 +26,12 @@ GET  http://localhost:3001/locations/?name=Earth
 
 ###
 GET https://rickandmortyapi.com/api/character
+
+###
+GET https://rickandmortyapi.com/api/character?status=unknown
+
+###
+GET https://rickandmortyapi.com/api/character?gender=female
 
 ###
 GET https://rickandmortyapi.com/api/character/?page=1

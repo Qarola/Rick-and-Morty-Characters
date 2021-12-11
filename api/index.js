@@ -40,9 +40,9 @@ conn.sync({ force: false }).then(() => {
         episode: c.episode.length, //c.episode?.map((el) => el), 
       });
     });
-  });  
-
-    //=================>>DESPUÉS DESCOMENTAR PARA CARGAR LA DB <<<=========================//
+  }); 
+*/
+ //=================>>DESPUÉS DESCOMENTAR PARA CARGAR LA DB <<<=========================//
 
 
 /*   axios.get("https://rickandmortyapi.com/api/episode") // /?page=2")
@@ -57,11 +57,11 @@ conn.sync({ force: false }).then(() => {
       });
     });
   }); 
- */
+  */
 
     //=================>> LUEGO DESCOMENTAR PARA CARGAR LA DB <<<=========================//
 
- /* axios.get("https://rickandmortyapi.com/api/location") // /?page=2
+/*   axios.get("https://rickandmortyapi.com/api/location") // /?page=2
     .then((res) => {
       let response = res.data.results.map((c) => {
         Location.create({
@@ -72,8 +72,8 @@ conn.sync({ force: false }).then(() => {
           residents: c.residents.length, //c.residents?.map((el) => el), 
         });
       });
-    }); 
- */
+    });  */
+ 
   console.log("Connection with DB is correct");
   server.listen(3001, () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console
