@@ -1,4 +1,4 @@
-# Rick and Morty Characters web app
+# Rick and Morty Characters
 
 ![home]()
 
