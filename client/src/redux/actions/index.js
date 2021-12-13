@@ -43,6 +43,53 @@ export function searchCharacter(name) {
   }
 }
 
+export function getCharByStatus(status) {
+  if (status) {
+    return function (dispatch) {
+      axios
+        .get(`http://localhost:3001/charbystatus?status=${status}`)
+        .then((res) =>
+          dispatch({
+            type: "GET_CHAR_BY_STATUS",
+            payload: res.data,
+          })
+        )
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+  } else {
+    return {
+      type: "GET_CHAR_BY_STATUS",
+      payload: [],
+    };
+  }
+}
+
+export function getCharByGender(gender) {
+  if (gender) {
+    return function (dispatch) {
+      axios
+        .get(`http://localhost:3001/charbygender?gender=${gender}`)
+        .then((res) =>
+          dispatch({
+            type: "GET_CHAR_BY_GENDER",
+            payload: res.data,
+          })
+        )
+        .catch((err) => {
+          console.error(err);
+        });
+    };
+  } else {
+    return {
+      type: "GET_CHAR_BY_GENDER",
+      payload: [],
+    };
+  }
+}
+
+
 export function getCharacterDetail(id) {
   return function (dispatch) {
     axios

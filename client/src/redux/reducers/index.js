@@ -6,6 +6,8 @@ const initialState = {
   searchedEpisode: [],
   searchedLocation: [],
   characterDetail: {},
+  getStatus: [],
+  getGender: []
 
 };
 
@@ -22,6 +24,16 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         searchedCharacter: action.payload,
       };
+      case "GET_CHAR_BY_STATUS":
+      return {
+        ...state,
+        getStatus: action.payload,
+      };
+      case "GET_CHAR_BY_GENDER":
+        return {
+          ...state,
+          getGender: action.payload,
+        };
     case "GET_CHARACTER_DETAIL":
       return {
         ...state,

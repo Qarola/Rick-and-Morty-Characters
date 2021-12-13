@@ -38,7 +38,7 @@ const Characters = (props) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const filterChars = allCharacters.filter((char) => {
-    return char.name.toLowerCase(); //.includes(nameChar.toLowerCase());
+    return char.name.toLowerCase()//.includes(searchedChar.toLowerCase());
   });
 
   //optional message if there is not character with this name...
@@ -47,6 +47,8 @@ const Characters = (props) => {
       return <NoResult filterChars={props.filterChars} />;
     }
   };
+
+
 
   return (
     <div className="grid-card">
