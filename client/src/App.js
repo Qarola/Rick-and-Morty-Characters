@@ -3,10 +3,10 @@ import React from "react";
 import Characters from './components/Characters/Characters.jsx';
 import Header from './components/Header/Header.jsx';
 import CharacterDetail from './components/CharacterDetail/CharacterDetail.jsx';
-//import NoCharacterDetail from "./components/NoCharacterDetail/NoCharacterDetail.jsx";
 import Episodes from './components/Episodes/Episodes.jsx';
 import Locations from './components/Locations/Locations.jsx';
 //import SearchBar from "./components/SearchBar/SearchBar.jsx";
+import StatusAndGender from "./components/StatusAndGender/StatusAndGender.jsx";
 import { Route } from "react-router-dom"; 
 
 import "./stylesheets/App.scss";
@@ -28,11 +28,13 @@ function App() {
   
   return (
     <div className="App">
+      <Header />
       <React.Fragment>
-      <Route exact path="/" component={Header} />
+     {/*  <Route exact path="/" component={Header} /> */}
 {/*       <Route path='/' component={SearchBar} />
  */}      <Route exact path="/" component={Characters} />
       <Route path="/characters/:id" component={CharacterDetail} />      {/*    render={renderCharacterDetail} /> */}
+      <Route path="/statusandgender" component={StatusAndGender} />
       <Route path="/episodes" component={Episodes} />
       <Route path="/locations" component={Locations} /> 
     </React.Fragment>

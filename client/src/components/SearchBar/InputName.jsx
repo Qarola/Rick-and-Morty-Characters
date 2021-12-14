@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {  useDispatch } from 'react-redux';
+import { Link } from "react-router-dom";
 import { searchCharacter  } from '../../redux/actions/index';
 import { RiSearch2Line } from 'react-icons/ri';
 
@@ -24,8 +25,10 @@ const InputChar = () => {
  
    return (
      <form className="form">
+       <div className='link'>
+         <h2><Link to='/statusandgender'>Filters</Link> </h2>
+       </div>
        <label htmlFor="name" className="form__label">
-        {/*  Search by characters name */}
          <input
            type="text"
            name="name"

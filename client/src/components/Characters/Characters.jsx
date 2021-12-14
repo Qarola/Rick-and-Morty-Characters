@@ -7,25 +7,24 @@ import Pagination from "../Pagination/Pagination";
 import { getAllCharacters } from "../../redux/actions/index.js";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import NoResult from "../NoResult/NoResult";
-import SearchBar from "../SearchBar/SearchBar";
+//import SearchBar from "../SearchBar/SearchBar";
+//import StatusAndGender from "../StatusAndGender/StatusAndGender";
+import InputChar from "../SearchBar/InputName";
+//import { BsFillArrowUpLeftCircleFill } from "react-icons/bs";
+
 
 
 const Characters = (props) => {
   const dispatch = useDispatch();
   const allCharacters = useSelector((state) => state.allCharacters);
   const searchedChar = useSelector((state) => state.searchedCharacter);
+ 
 
   useEffect(() => {
     dispatch(getAllCharacters());
   }, [dispatch]);
 
-  const initialFilter = {
-    name: "",
-    status: "",
-    gender: "",
-  };
-  // eslint-disable-next-line
-  const [filter, setFilter] = useState({ initialFilter });
+
 
   //pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -38,7 +37,7 @@ const Characters = (props) => {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   const filterChars = allCharacters.filter((char) => {
-    return char.name.toLowerCase()//.includes(searchedChar.toLowerCase());
+    return char.name.toLowerCase()//.includes(.toLowerCase());
   });
 
   //optional message if there is not character with this name...
@@ -52,8 +51,8 @@ const Characters = (props) => {
 
   return (
     <div className="grid-card">
-      <SearchBar setFilter={setFilter} />
-      <div className="chars-list">
+      <InputChar />
+     <div className="chars-list">
         {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
           searchedChar.map((e) => (
             <Link key={e.id} to={`/characters/${e.id}`}>
@@ -89,7 +88,7 @@ const Characters = (props) => {
                 ))}
             </li>
           </div>
-        )}
+        )} 
       </div>
 
       <div className="optionalMessage">{optionalMessage()}</div>
