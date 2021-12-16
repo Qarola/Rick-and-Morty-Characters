@@ -3,18 +3,8 @@ const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { default: axios } = require("axios");
 
- const getEpisodes = async (req, res) => {
-  try {
-    const episodeDB = await Episode.findAll();
-    return res.status(200).json(episodeDB);
-  } catch (error) {
-    console.log(error);
-    res.status(500);
-    return;
-  }
-};
- 
-const getEpisodeByName = async (req, res) => {
+
+const getEpisodes = async (req, res) => {
   let { name } = req.query;
   console.log( name, "this is a query");
   if (name) {
@@ -38,11 +28,19 @@ const getEpisodeByName = async (req, res) => {
       res.status(500);
       return;
     }
+  } else {
+    try {
+      const episodeDB = await Episode.findAll();
+      return res.status(200).json(episodeDB);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      return;
+    }
   }
 }
 
 module.exports = {
   getEpisodes,
-  getEpisodeByName
 };
 

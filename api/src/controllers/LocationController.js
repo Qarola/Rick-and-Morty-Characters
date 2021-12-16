@@ -3,19 +3,9 @@ const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { default: axios } = require("axios");
 
- const getLocations = async (req, res) => {
-  try {
-    const locationDB = await Location.findAll();
-    return res.status(200).json(locationDB);
-  } catch (error) {
-    console.log(error);
-    res.status(500);
-    return;
-  }
-};
 
 
-const getLocationByType = async (req, res) => {
+const getLocations= async (req, res) => {
   let { type } = req.query;
   console.log( type, "this is a query");
   if (type) {
@@ -39,6 +29,16 @@ const getLocationByType = async (req, res) => {
       res.status(500);
       return;
     }
+  } else {
+    try {
+      const locationDB = await Location.findAll();
+      return res.status(200).json(locationDB);
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      return;
+    }
+
   }
 }
 
@@ -46,6 +46,5 @@ const getLocationByType = async (req, res) => {
 
 module.exports = {
   getLocations,
- getLocationByType,
 
 };

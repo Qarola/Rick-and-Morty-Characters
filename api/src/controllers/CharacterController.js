@@ -2,15 +2,12 @@ const { Character } = require("../db");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { default: axios } = require("axios");
-const NodeCache = require("node-cache");
-const cache = new NodeCache({ stdTTL: 3600})
 
 const getAllCharacters = async (req, res) => {
   let { name } = req.query;
   console.log(name, "this is a query");
   if (name) {
     try {
-      cache.set(name)
       let charDb = await Character.findAll({
         where: {
           name: {
@@ -27,6 +24,31 @@ const getAllCharacters = async (req, res) => {
     }
   } else {
     try {
+      let urlApi = `https://rickandmortyapi.com/api/character?name=${name}`
+      axios.get(urlApi)
+      .then((resp) => {
+        let response = resp.data.results.map((c) => ({ 
+          id: c.id,
+          image: c.image,
+          name: c.name.toLowerCase(),
+          status: c.status,
+          specie: c.species,
+          type: c.type,
+          gender: c.gender,
+        /*   location: c.location.name,
+          episode: c.episode.length */
+        }))
+      // console.log(response)
+       return res.send(response);
+      })
+    } catch (error) {
+      console.log(error);
+      res.status(500);
+      return;
+    }
+  }
+
+   /*  try {
       return await Character.findAll().then((data) => {
         if (data !== null) {
           res.status(200).send(data);
@@ -37,7 +59,7 @@ const getAllCharacters = async (req, res) => {
       res.status(500);
       return;
     }
-  }
+  } */
 };
 
 const getAllCharactersByStatus = async (req, res) => {
@@ -45,7 +67,6 @@ const getAllCharactersByStatus = async (req, res) => {
   console.log(status, "this is a query");
   if (status ) {
     try {
-      cache.set(status)
       let urlApi = `https://rickandmortyapi.com/api/character?status=${status}`
       axios.get(urlApi)
       .then((resp) => {
@@ -76,7 +97,6 @@ const getAllCharactersByGender = async (req, res) => {
   console.log( gender, "this is a query");
   if (gender) {
     try {
-      cache.set(gender)
       let urlApi = `https://rickandmortyapi.com/api/character?gender=${gender}` 
       axios.get(urlApi)
       .then((resp) => {
@@ -111,10 +131,7 @@ const getCharacterById = async (req, res) => {
     let character = await Character.findOne({
       where: {
         id: id,
-      },
-      include: {
-        model: Episode,
-      },
+      }
     });
     return res.status(200).json(character);
   } catch (error) {

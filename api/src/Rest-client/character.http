@@ -1,7 +1,7 @@
 GET http://localhost:3001/characters
 
 ###
-GET http://localhost:3001/characters?name=Rick
+GET http://localhost:3001/characters?name=eddie
 
 ###
 GET http://localhost:3001/charbystatus?status=unknown
@@ -15,8 +15,6 @@ GET http://localhost:3001/characters/3
 ###
 GET  http://localhost:3001/episodes
 
-###
-GET  http://localhost:3001/epibyname?name=Pilot
 
 ###
 GET  http://localhost:3001/episodes/?name=M. Night Shaym-Aliens!
@@ -25,7 +23,7 @@ GET  http://localhost:3001/episodes/?name=M. Night Shaym-Aliens!
 GET  http://localhost:3001/locations
 
 ###
-GET  http://localhost:3001/locbytype?type=Planet
+GET  http://localhost:3001/locations?type=Planet
 
 
 ###
@@ -55,3 +53,19 @@ GET https://rickandmortyapi.com/api/location/?type=Planet
 
 ###
 GET https://rickandmortyapi.com/api/location/?page=3
+
+###
+GET https://rickandmortyapi.com/api/character/?page=3
+
+
+###
+GET https://rickandmortyapi.com/api/character/?page=4
+
+###
+GET http://localhost:3001/nextChar?page=2
+
+###
+GET http://localhost:3001/nextEpi?page=3
+
+###
+GET http://localhost:3001/nextLoc?page=4
