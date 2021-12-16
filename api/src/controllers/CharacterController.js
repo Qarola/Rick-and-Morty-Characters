@@ -1,19 +1,23 @@
-const { Character, Episode } = require("../db");
+const { Character } = require("../db");
 const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { default: axios } = require("axios");
+const NodeCache = require("node-cache");
+const cache = new NodeCache({ stdTTL: 3600})
 
 const getAllCharacters = async (req, res) => {
   let { name } = req.query;
   console.log(name, "this is a query");
   if (name) {
     try {
+      cache.set(name)
       let charDb = await Character.findAll({
         where: {
           name: {
             [Op.like]: `%${name}%`,
           },
         },
+     
       });
       return res.status(200).json(charDb);
     } catch (error) {
@@ -37,15 +41,17 @@ const getAllCharacters = async (req, res) => {
 };
 
 const getAllCharactersByStatus = async (req, res) => {
-  let { status,/*  gender  */} = req.query;
-  console.log(status,/*  gender, */ "this is a query");
-  if (status /* || gender */) {
+  let { status } = req.query;
+  console.log(status, "this is a query");
+  if (status ) {
     try {
-      let urlApi = `https://rickandmortyapi.com/api/character?status=${status}` //&gender=${gender}`
+      cache.set(status)
+      let urlApi = `https://rickandmortyapi.com/api/character?status=${status}`
       axios.get(urlApi)
       .then((resp) => {
         let response = resp.data.results.map((c) => ({ 
           id: c.id,
+          image: c.image,
           name: c.name,
           status: c.status,
           specie: c.species,
@@ -70,11 +76,13 @@ const getAllCharactersByGender = async (req, res) => {
   console.log( gender, "this is a query");
   if (gender) {
     try {
+      cache.set(gender)
       let urlApi = `https://rickandmortyapi.com/api/character?gender=${gender}` 
       axios.get(urlApi)
       .then((resp) => {
         let response = resp.data.results.map((c) => ({ 
           id: c.id,
+          image: c.image,
           name: c.name,
           status: c.status,
           specie: c.species,
@@ -115,6 +123,8 @@ const getCharacterById = async (req, res) => {
     return;
   }
 };
+
+
 
 module.exports = {
   getAllCharacters,

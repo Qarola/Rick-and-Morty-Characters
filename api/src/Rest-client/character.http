@@ -16,10 +16,17 @@ GET http://localhost:3001/characters/3
 GET  http://localhost:3001/episodes
 
 ###
+GET  http://localhost:3001/epibyname?name=Pilot
+
+###
 GET  http://localhost:3001/episodes/?name=M. Night Shaym-Aliens!
 
 ###
 GET  http://localhost:3001/locations
+
+###
+GET  http://localhost:3001/locbytype?type=Planet
+
 
 ###
 GET  http://localhost:3001/locations/?name=Earth
@@ -38,6 +45,13 @@ GET https://rickandmortyapi.com/api/character/?page=1
 
 ###
 GET https://rickandmortyapi.com/api/episode
+
+###
+
+GET https://rickandmortyapi.com/api/location
+
+###
+GET https://rickandmortyapi.com/api/location/?type=Planet
 
 ###
 GET https://rickandmortyapi.com/api/location/?page=3

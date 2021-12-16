@@ -3,11 +3,9 @@ const Sequelize = require("sequelize");
 const Op = Sequelize.Op;
 const { default: axios } = require("axios");
 
-/* const getLocations = async (req, res) => {
+ const getLocations = async (req, res) => {
   try {
-    const locationDB = await Location.findAll({
-      include: Character
-    });
+    const locationDB = await Location.findAll();
     return res.status(200).json(locationDB);
   } catch (error) {
     console.log(error);
@@ -15,40 +13,39 @@ const { default: axios } = require("axios");
     return;
   }
 };
- */
-const getLocations = async (req, res) => {
-  let { name } = req.query;
-  console.log(name, "this is a query");
-  if (name) {
+
+
+const getLocationByType = async (req, res) => {
+  let { type } = req.query;
+  console.log( type, "this is a query");
+  if (type) {
     try {
-      let locationDb = await Location.findAll({
-        where: {
-          name: {
-            [Op.like]: `%${name}%`,
-          },
-         // include: Episode
-        },
-      });
-      return res.status(200).json(locationDb);
-    } catch (error) {
-      console.log(error);
-      res.status(500);
-      return;
-    }
-  } else {
-    try {
-      return await Location.findAll().then((data) => {
-        if (data !== null) {
-          res.status(200).send(data);
-        }
-      });
+      let urlApi = `https://rickandmortyapi.com/api/location?type=${type}` 
+      axios.get(urlApi)
+      .then((resp) => {
+        let response = resp.data.results.map((c) => ({ 
+          id: c.id,
+          name: c.name,
+          type: c.type,
+          dimension: c.dimension,
+         residents: c.residents.length
+        }))
+       //console.log(response)
+        return res.status(200).json(response);
+         
+      })
     } catch (error) {
       console.log(error);
       res.status(500);
       return;
     }
   }
-};
+}
+
+
+
 module.exports = {
   getLocations,
+ getLocationByType,
+
 };
