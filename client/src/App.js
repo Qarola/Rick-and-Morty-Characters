@@ -35,8 +35,8 @@ function App() {
  */}      <Route exact path="/" component={Characters} />
       <Route path="/characters/:id" component={CharacterDetail} />      {/*    render={renderCharacterDetail} /> */}
       <Route path="/statusandgender" component={StatusAndGender} />
-      <Route path="/episodes" component={Episodes} />
       <Route path="/locations" component={Locations} /> 
+      <Route path="/episodes" component={Episodes} />
     </React.Fragment>
     </div>  
 

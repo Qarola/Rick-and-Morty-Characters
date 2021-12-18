@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getCharacterDetail } from "../../redux/actions";
+import { getAllEpisodes } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import { BsFillArrowUpLeftCircleFill } from "react-icons/bs";
 
 
-const Episodes= ({match}, props) => {
-    const { id } = match.params;
-  const charDetail = useSelector((state) => state.characterDetail);
+const Episodes= (props) => {
+  
+  const charDetail = useSelector((state) => state.episodes);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getCharacterDetail(id))
-  }, [dispatch, id])
+    dispatch(getAllEpisodes())
+  }, [dispatch])
 
   return (
     <>
-      <div className="detail" key={id}>
+      <div className="detail">
         <Link to="/" className="detail__back">
           <p className="detail__back">
             <BsFillArrowUpLeftCircleFill />

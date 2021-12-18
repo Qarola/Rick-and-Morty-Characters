@@ -21,12 +21,25 @@ const InputChar = () => {
       dispatch(searchCharacter(name))
      setName('');
     }
+
+    /* const handleChars = () => {
+      
+    } */
  
  
    return (
      <form className="form">
        <div className='link'>
-         <h2><Link to='/statusandgender'>Filters</Link> </h2>
+         <button><Link to='/' onClick={handleSubmitChar}>Characters</Link> </button>
+       </div>
+       <div className='link'>
+         <button><Link to='/locations'>Locations</Link> </button>
+       </div>
+       <div className='link'>
+         <button><Link to='/episodes'>Episodes</Link> </button>
+       </div>
+       <div className='link'>
+         <button><Link to='/statusandgender'>Filter by status or gender</Link></button>
        </div>
        <label htmlFor="name" className="form__label">
          <input

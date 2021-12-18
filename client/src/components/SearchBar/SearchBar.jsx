@@ -1,20 +1,13 @@
 import React from 'react';
-//import { useHistory } from 'react-router'
-//import  { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-//import {useSelector } from "react-redux";
-import { /* searchCharacter,  */getCharByStatus, getCharByGender } from "../../redux/actions";
-//import { RiSearch2Line } from 'react-icons/ri';
-//import InputChar from "./InputName";
-//import DropdownStatus from "./InputStatus";
+import { getCharByStatus, getCharByGender } from "../../redux/actions";
+
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
-  //const history = useHistory();
 
- // const [name, setName] = useState("");
   const [status, setStatus] = useState("");
   const [gender, setGender] = useState("");
 
@@ -26,17 +19,7 @@ const SearchBar = (props) => {
   // eslint-disable-next-line
   const [filter, setFilter] = useState({ initialFilter });
 
-//>>>>>>>>>> handle characters <<<<<<<<<
-/*   const handleInputChangeChar = (e) => {
-    e.preventDefault();
-    setName(e.target.value)
-  }
-
-  const handleSubmitChar = (e) => {
-   e.preventDefault();
-    dispatch(searchCharacter(name))
-  }; */
-//>>>>>>>>>>> handle status <<<<<<<<<<<<
+  //>>>>>>>> handle status <<<<<<<<<<
   const handleStatus = (e) => {
     setStatus(e.target.value)
   
@@ -58,26 +41,13 @@ const SearchBar = (props) => {
      dispatch(getCharByGender(gender))
    };
 
- 
-
-/* 
-  const onSubmit = (e) => {
-    e.preventDefault();
-    props.setFillter({
-    //  name,
-      status,
-      gender,
-    });
-  }; */
 
   const onClear = () => {
-   // setName("");
     setStatus("");
     setGender("");
     window.location.reload()
 
     setFilter({
-     // name,
       status,
       gender,
     });
@@ -86,24 +56,9 @@ const SearchBar = (props) => {
 
   return (
     <div className="form">
-    {/*   <form onSubmit={onSubmit}>
-     
-      <input
-        id='name'
-        name='name'
-        type="text"
-        placeholder="Search by character name"
-        value={name}
-        onChange={(e) => handleInputChangeChar(e)}
-        className="input-name"
-      />
-      <button className='btn-search' 
-      type='submit'
-      onClick={(e) => handleSubmitChar(e)}><RiSearch2Line /> {/* 🔍 *
-      </button>
-       </form> 
-      */}
-
+      <div className='link'>
+         <button><Link to='/'>Characters</Link> </button>
+       </div>
       <select
         className="dropdown"
         type='submit'
@@ -135,7 +90,7 @@ const SearchBar = (props) => {
       </select>
       <button className="btn-clear" type="submit" onClick={onClear}>
         {" "}
-        <Link to='/'>Reset</Link>
+        <Link to='/statusandgender'>Reset</Link>
       </button>
     </div>
   );

@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
 import GenderIcon from "./GenderIcon";
 import AliveOrDeadChar from "./AliveOrDeadChar";
 import { GiHumanTarget } from "react-icons/gi";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { RiRecordCircleFill } from "react-icons/ri";
+//import { FaMapMarkerAlt } from "react-icons/fa";
+//import { RiRecordCircleFill } from "react-icons/ri";
 
-import "./CharacterCard.css";
+//import "./CharacterCard.css";
 
 const CharacterCard = (props) => {
   return (
@@ -18,30 +18,30 @@ const CharacterCard = (props) => {
             {props.name}
           </h2>
           <h3>
-            Status: <AliveOrDeadChar className="card" status={props.status} />{" "}
+            Status: <AliveOrDeadChar className="card" status={props.status} />
             {props.status}
           </h3>
           <h3>
             Specie: <GiHumanTarget className="card" /> {props.specie}
           </h3>
           <h3>
-            Gender: <GenderIcon className="card" gender={props.gender} />{" "}
+            Gender: <GenderIcon className="card" gender={props.gender} />
             {props.gender}
           </h3>
-          <Link to="/locations">
-            <h3>
-              Location:{" "}
-              <FaMapMarkerAlt className="card" location={props.location} />{" "}
-              {props.location.name}
+        
+           {/*  <h3>
+              Location:
+              <FaMapMarkerAlt className="card" location={props.location} />
+              {props.location}
             </h3>
-          </Link>
-          <Link to="/episodes">
+         
+         
             <h3>
-              Episodes:{" "}
-              <RiRecordCircleFill className="card" episode={props.episode} />{" "}
+              Episodes:
+              <RiRecordCircleFill className="card" episode={props.episode} />
               {props.episode}
-            </h3>
-          </Link>
+            </h3> */}
+         
         </div>
       </div>
     </>

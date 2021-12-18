@@ -5,7 +5,7 @@ function Header() {
   return (
     <header className="header">
     {/*   <Link to="/"> */}
-        <img src={logo} alt="logo rick and morty" />
+        <img className='header__image'src={logo} alt="logo rick and morty" />
        {/*  <img className="floatRight" src={logo2} alt="logo rick and morty" />
         <img className='floatRight' src={logo3} alt='logo rick, morty and summer' /> */}
      {/*  </Link> */}

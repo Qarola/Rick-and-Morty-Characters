@@ -7,8 +7,8 @@ const initialState = {
   searchedLocation: [],
   characterDetail: {},
   getStatus: [],
-  getGender: []
-
+  getGender: [],
+  numberOfPages: null,
 };
 
 export default function rootReducer(state = initialState, action) {
