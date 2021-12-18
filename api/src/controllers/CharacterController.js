@@ -24,31 +24,6 @@ const getAllCharacters = async (req, res) => {
     }
   } else {
     try {
-      let urlApi = `https://rickandmortyapi.com/api/character?name=${name}`
-      axios.get(urlApi)
-      .then((resp) => {
-        let response = resp.data.results.map((c) => ({ 
-          id: c.id,
-          image: c.image,
-          name: c.name.toLowerCase(),
-          status: c.status,
-          specie: c.species,
-          type: c.type,
-          gender: c.gender,
-        /*   location: c.location.name,
-          episode: c.episode.length */
-        }))
-      // console.log(response)
-       return res.send(response);
-      })
-    } catch (error) {
-      console.log(error);
-      res.status(500);
-      return;
-    }
-  }
-
-   /*  try {
       return await Character.findAll().then((data) => {
         if (data !== null) {
           res.status(200).send(data);
@@ -59,7 +34,8 @@ const getAllCharacters = async (req, res) => {
       res.status(500);
       return;
     }
-  } */
+   
+  }
 };
 
 const getAllCharactersByStatus = async (req, res) => {

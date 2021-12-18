@@ -25,8 +25,8 @@ const { default: axios } = require("axios");
 conn.sync({ force: false }).then(() => {
   //=================>> DESCOMENTAR PARA CARGAR LA DB <<<=========================//
 
- /*
-  axios.get("https://rickandmortyapi.com/api/character") ///?page=2"
+ 
+/*   axios.get("https://rickandmortyapi.com/api/character?page=42") ///?page=1"
   .then((res) => {
     let response = res.data.results.map((c) => {
       Character.create({
@@ -40,12 +40,12 @@ conn.sync({ force: false }).then(() => {
         episode: c.episode.length, //c.episode?.map((el) => el), 
       });
     });
-  }); 
-*/
+  });  */
+
  //=================>>DESPUÉS DESCOMENTAR PARA CARGAR LA DB <<<=========================//
 
-
-/*   axios.get("https://rickandmortyapi.com/api/episode") // /?page=2")
+/* 
+   axios.get("https://rickandmortyapi.com/api/episode?page=3") // /?page=1")
   .then((res) => {
     let response = res.data.results.map((c) => {
       Episode.create({
@@ -57,23 +57,8 @@ conn.sync({ force: false }).then(() => {
       });
     });
   }); 
-  */
+   */
 
-    //=================>> LUEGO DESCOMENTAR PARA CARGAR LA DB <<<=========================//
-
-/*   axios.get("https://rickandmortyapi.com/api/location") // /?page=2
-    .then((res) => {
-      let response = res.data.results.map((c) => {
-        Location.create({
-          id: c.id,
-          name: c.name,
-          type: c.type,
-          dimension: c.dimension,
-          residents: c.residents.length, //c.residents?.map((el) => el), 
-        });
-      });
-    });  */
- 
   console.log("Connection with DB is correct");
   server.listen(3001, () => {
     console.log("%s listening at 3001"); // eslint-disable-line no-console

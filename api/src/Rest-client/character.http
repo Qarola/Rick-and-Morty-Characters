@@ -52,7 +52,7 @@ GET https://rickandmortyapi.com/api/location
 GET https://rickandmortyapi.com/api/location/?type=Planet
 
 ###
-GET https://rickandmortyapi.com/api/location/?page=3
+GET https://rickandmortyapi.com/api/location/?page=2
 
 ###
 GET https://rickandmortyapi.com/api/character/?page=3
@@ -69,3 +69,8 @@ GET http://localhost:3001/nextEpi?page=3
 
 ###
 GET http://localhost:3001/nextLoc?page=4
+
+
+
+###
+GET http://localhost:3001/filter

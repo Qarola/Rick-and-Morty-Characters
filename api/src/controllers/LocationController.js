@@ -31,8 +31,20 @@ const getLocations= async (req, res) => {
     }
   } else {
     try {
-      const locationDB = await Location.findAll();
-      return res.status(200).json(locationDB);
+      let urlApi = 'https://rickandmortyapi.com/api/location' 
+      axios.get(urlApi)
+      .then((resp) => {
+        let response = resp.data.results.map((c) => ({ 
+          id: c.id,
+          name: c.name,
+          type: c.type,
+          dimension: c.dimension,
+         residents: c.residents.length
+        }))
+       //console.log(response)
+        return res.status(200).json(response);
+         
+      })
     } catch (error) {
       console.log(error);
       res.status(500);
@@ -41,8 +53,6 @@ const getLocations= async (req, res) => {
 
   }
 }
-
-
 
 module.exports = {
   getLocations,

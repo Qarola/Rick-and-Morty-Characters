@@ -16,7 +16,6 @@ const { Router } = require('express');
 const { getAllCharacters, getAllCharactersByStatus, getAllCharactersByGender, getCharacterById} = require('../controllers/CharacterController');
 const { getLocations } = require('../controllers/LocationController');
 const { getEpisodes } = require('../controllers/EpisodeController');
-const { getNextPageCharacter, getNextPageEpisode, getNextPageLocation } = require('../controllers/Pagination')
 
 const router = Router();
 
@@ -26,9 +25,6 @@ router.get("/charbygender",  getAllCharactersByGender);
 router.get("/characters/:id", getCharacterById);
 router.get("/locations", getLocations);
 router.get("/episodes", getEpisodes);
-router.get("/nextChar", getNextPageCharacter);
-router.get("/nextEpi", getNextPageEpisode);
-router.get("/nextLoc", getNextPageLocation)
 
 
 module.exports = router;
