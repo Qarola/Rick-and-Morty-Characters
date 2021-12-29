@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { getCharByStatus, getCharByGender } from "../../redux/actions";
-
 
 const SearchBar = (props) => {
   const dispatch = useDispatch();
@@ -21,48 +20,45 @@ const SearchBar = (props) => {
 
   //>>>>>>>> handle status <<<<<<<<<<
   const handleStatus = (e) => {
-    setStatus(e.target.value)
-  
-  }
+    setStatus(e.target.value);
+  };
   const handleSubmitStatus = (e) => {
     e.preventDefault();
-     dispatch(getCharByStatus(status))
-   };
-
+    dispatch(getCharByStatus(status));
+  };
 
   //>>>>>>>> handle gender <<<<<<<<<<
   const handleGender = (e) => {
-    setGender(e.target.value)
-     
-  }
+    setGender(e.target.value);
+  };
 
-   const handleSubmitGender = (e) => {
+  const handleSubmitGender = (e) => {
     e.preventDefault();
-     dispatch(getCharByGender(gender))
-   };
-
+    dispatch(getCharByGender(gender));
+  };
 
   const onClear = () => {
     setStatus("");
     setGender("");
-    window.location.reload()
+    window.location.reload();
 
     setFilter({
       status,
       gender,
     });
-    
   };
 
   return (
     <div className="form">
-      <div className='link'>
-         <button><Link to='/'>Characters</Link> </button>
-       </div>
+      <div className="link">
+        <button>
+          <Link to="/">Characters</Link>{" "}
+        </button>
+      </div>
       <select
         className="dropdown"
-        type='submit'
-        id='status'
+        type="submit"
+        id="status"
         placeholder="Search by character status"
         value={status}
         onChange={(e) => handleStatus(e)}
@@ -76,8 +72,8 @@ const SearchBar = (props) => {
 
       <select
         className="dropdown"
-        type='submit'
-        id='gender'
+        type="submit"
+        id="gender"
         placeholder="Search by character gender"
         value={gender}
         onChange={(e) => handleGender(e)}
@@ -90,7 +86,7 @@ const SearchBar = (props) => {
       </select>
       <button className="btn-clear" type="submit" onClick={onClear}>
         {" "}
-        <Link to='/statusandgender'>Reset</Link>
+        <Link to="/statusandgender">Reset</Link>
       </button>
     </div>
   );

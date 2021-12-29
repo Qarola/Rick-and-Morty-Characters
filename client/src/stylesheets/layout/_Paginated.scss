@@ -1,0 +1,38 @@
+.container {
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: 15px;
+	background-color: #f4f6ff;
+}
+
+.pagination {
+    display: inline-block;
+	@media only screen and (min-width: 300px) and (max-width: 800px) {
+		display: flex;
+	}
+}
+
+.btn {
+    background-color: #212121;
+	border: 1px solid #f4f6ff;
+	color: white;
+	font-size: 1.1em;
+	margin: 10px;
+	padding: 0.25em 1em;
+	height: 40px;
+	width: 150px;
+	border-radius: 15px;
+	transition: width 2s;
+	outline: none;
+	cursor: pointer;
+	&:hover {
+		width: 100;
+		background-color: #404040;
+		color: rgb(153, 38, 38);
+	}
+	&:active {
+		transform: scale(0.9);
+	}
+}

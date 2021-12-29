@@ -3,12 +3,13 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Pagination from "../Pagination/Pagination";
-import { getAllCharacters, searchCharacter } from "../../redux/actions/index.js";
+import {
+  getAllCharacters,
+  searchCharacter,
+} from "../../redux/actions/index.js";
 import CharacterCard from "../CharacterCard/CharacterCard";
 import NoResult from "../NoResult/NoResult";
 import InputChar from "../SearchBar/InputName";
-
-
 
 const Characters = (props) => {
   const dispatch = useDispatch();
@@ -25,7 +26,9 @@ const Characters = (props) => {
   useEffect(() => {
     if (props.location.search !== "") {
       setPage(
-        parseInt(props.location.search.slice(props.location.search.indexOf("=") + 1))
+        parseInt(
+          props.location.search.slice(props.location.search.indexOf("=") + 1)
+        )
       );
     }
   }, [props.location.search]);
@@ -41,26 +44,26 @@ const Characters = (props) => {
   useEffect(() => {
     return searchCharacter("");
   }, []);
- 
+
   const filterChars = allCharacters.filter((char) => {
-    return char.name.toLowerCase()//.includes(name.toLowerCase());
+    return char.name.toLowerCase(); //.includes(name.toLowerCase());
   });
 
   //optional message if there is not character with this name...
   const optionalMessage = () => {
     if (filterChars.length === 0) {
-      return <NoResult filterChars={props.filterChars} />;
+      return <NoResult filterChars={filterChars} />;
     }
   };
 
-    return (
-      <div className="grid-card">
-        <InputChar />
-       <div className="chars-list">
-          {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
-            searchedChar.map((e) => (
-              <Link key={e.id} to={`/characters/${e.id}`}>
-              <li key={e.id + e.name} className="chararacters">
+  return (
+    <div className="grid-card">
+      <InputChar />
+      <div className="chars-list">
+        {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
+          searchedChar.map((e) => (
+            <Link key={e.id} to={`/characters/${e.id}`}>
+              <li className="card-list" key={e.id + e.name}>
                 <CharacterCard
                   key={Math.floor(Math.random() * 10000)}
                   image={e.image}
@@ -70,40 +73,32 @@ const Characters = (props) => {
                   gender={e.gender}
                   location={e.location}
                 />
-                
               </li>
-              </Link>
-              
-            ))
-          ) : (
-            <div className="characters">
-              <li className="characters">
-              {chars?.slice((page - 1) * 9, page * 9).map((e) => (
-                  <Link key={e.id} to={`/characters/${e.id}`}>
-                    <CharacterCard
-                      key={e.id}
-                      image={e.image}
-                      name={e.name}
-                      status={e.status}
-                      specie={e.specie}
-                      gender={e.gender}
-                      location={e.location}
-                    />
-                  </Link>
-                ))}
+            </Link>
+          ))
+        ) : (
+          <div className="characters">
+            <li className="characters">
+              {chars?.slice((page - 1) * 12, page * 12).map((e) => (
+                <Link className="link-txt" key={e.id} to={`/characters/${e.id}`}>
+                  <CharacterCard
+                    key={e.id}
+                    image={e.image}
+                    name={e.name}
+                    status={e.status}
+                    specie={e.specie}
+                    gender={e.gender}
+                    location={e.location}
+                  />
+                </Link>
+              ))}
             </li>
           </div>
-        )} 
+        )}
       </div>
-        <div className="optionalMessage">{optionalMessage()}</div>
-        <Pagination className="pagtn" allCharacters={chars} page={page} />
-      </div>
-      
-    );
-   
+      <div className="optionalMessage">{optionalMessage()}</div>
+      <Pagination className="pagtn" allCharacters={chars} page={page} />
+    </div>
+  );
 };
 export default Characters;
-
-
-
-

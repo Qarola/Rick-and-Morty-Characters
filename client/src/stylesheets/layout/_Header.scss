@@ -1,5 +1,5 @@
 .header{
- /*background-image: url(../../img/rick-morty-header.jpg);*/
+   // background-image: url(../../img/rick-morty-header.jpg);
     background-size: cover;
     background-position-x: center;
     background-repeat: no-repeat;
@@ -9,34 +9,9 @@
     position: relative;
     top: 0;
     z-index: -1; 
- /*   padding-top: 40px;
-    margin-bottom: 40px;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;   */
-   /*  display: block; */
-  /*   margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-   */
-    &__image{
-        width: 100%;
-        height: 20px;
+    @media all and (min-width: 768px) {
         display: flex;
-    justify-content: center;
-    align-items: center; 
-        
-        @include tablet{
-            width: 400px;
-            height: 110px;
-        }
-    }
-    
-}
-
-.floatRight{
-    float:right;
-    margin-left:10rem
+        flex-direction: row;
+        font-size: 24px;
+      }
 }

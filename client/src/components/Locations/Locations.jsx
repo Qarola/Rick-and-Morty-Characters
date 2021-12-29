@@ -1,81 +1,101 @@
-import React from 'react';
-import { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Pagination from '../Pagination/Pagination';
-import LocationCard from './LocationCard';
-import FilterByType from './FilterByType';
-import { getAllLocations, getLocationByType } from '../../redux/actions/index';
+import React from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import PaginationTwo from "../Pagination/PaginationTwo";
+import LocationCard from "./LocationCard";
+import FilterByType from "./FilterByType";
+import axios from "axios";
 
-const Locations = (props) => {
-    const dispatch = useDispatch();
-    const allLocations = useSelector((state) => state.allLocations);
-    const searchedLoc = useSelector((state) => state.searchedLocation);
+const Locations = () => {
+  const allLocations = useSelector((state) => state.allLocations);
+  const searchedLoc = useSelector((state) => state.searchedLocation);
+  // eslint-disable-next-line
+  const [loading, setLoading] = useState(true);
 
-    const [locations, setLocations] = useState([]);
-    const [page, setPage] = useState(1); //it starts in the page 1...
+  const [locations, setLocations] = useState([]);
+  const [currentPageUrl, setCurrentPageUrl] = useState(
+    "https://rickandmortyapi.com/api/location"
+  );
+  const [nextPageUrl, setNextPageUrl] = useState();
+  const [prevPageUrl, setPrevPageUrl] = useState();
+  const [pages, setPages] = useState();
 
+  useEffect(() => {
+    const url = currentPageUrl;
+    setLoading(true);
+    const fetchData = async () => {
+      axios.get(url).then((response) => {
+        setLocations(response.data.results);
+        setLoading(false);
+        setNextPageUrl(response.data.info.next);
+        setPrevPageUrl(response.data.info.prev);
+        setPages(response.data.info.pages);
+      });
+      /* using fetch:
+        const res = await fetch(url);
+        const data = await res.json();
+        setLocations(data.results)
+        setLoading(false);
+        setNextPageUrl(data.info.next);
+        setPrevPageUrl(data.info.prev);
+        setPages(data.info.pages) */
+    };
+    fetchData();
+  }, [allLocations, currentPageUrl]);
 
+  function nextPage() {
+    setCurrentPageUrl(nextPageUrl);
+  }
 
-    useEffect(() => {
-        dispatch(getAllLocations())
-    }, [dispatch])
+  function prevPage() {
+    setCurrentPageUrl(prevPageUrl);
+  }
 
-    useEffect(() => {
-        if (props.location.search !== "") {
-          setPage(
-            parseInt(props.location.search.slice(props.location.search.indexOf("=") + 1))
-          );
-        }
-      }, [props.location.search]);
-    
-      useEffect(() => {
-        if (searchedLoc.length > 0) {
-          setLocations(searchedLoc);
-        } else {
-          setLocations(allLocations);
-        }
-      }, [allLocations, searchedLoc]);
-    
-      useEffect(() => {
-        return getLocationByType("");
-      }, []);
-     
-    return (
-        <div className="grid-card">
-        <FilterByType />
-       <div className="chars-list">
-       {searchedLoc && searchedLoc.length > 0 ? (
-                    searchedLoc.map((e) => ( 
-                        <li key={e.id+e.name} className='locations'>
-                        <LocationCard 
-                        key={Math.floor(Math.random() * 10000)}
-                        name={e.name}
-                        type={e.type}
-                        dimension={e.dimension}
-                        residents={e.residents}
-                        />
-                        </li>
-                    ))
-          ) : (
-            <div className="locations">
-              <li className="locations">
-              {locations?.slice((page - 1) * 9, page * 9).map((e) => (
-                    <li key={e.id+e.name} className='locations'>
-                        <LocationCard 
-                        key={Math.floor(Math.random() * 10000)}
-                        name={e.name}
-                        type={e.type}
-                        dimension={e.dimension}
-                        residents={e.residents}
-                        />
-                        </li>
-                ))}
+  function goToPage(num) {
+    setCurrentPageUrl(`https://rickandmortyapi.com/api/location?page=${num}`);
+  }
+
+  return (
+    <div className="grid-card">
+      <FilterByType />
+      <div className="chars-list">
+        {searchedLoc && searchedLoc.length > 0 ? (
+          searchedLoc.map((e) => (
+            <li key={e.id + e.name} className="locations">
+              <LocationCard
+                key={Math.floor(Math.random() * 10000)}
+                name={e.name}
+                type={e.type}
+                dimension={e.dimension}
+                residents={e.residents}
+              />
+            </li>
+          ))
+        ) : (
+          <div className="locations">
+            <li className="locations">
+              {locations?.map((e) => (
+                <li key={e.id + e.name} className="locations">
+                  <LocationCard
+                    key={Math.floor(Math.random() * 10000)}
+                    name={e.name}
+                    type={e.type}
+                    dimension={e.dimension}
+                    residents={e.residents.length}
+                  />
+                </li>
+              ))}
             </li>
           </div>
-        )} 
+        )}
       </div>
-        <Pagination className="pagtn" allCharacters={locations} page={page} />
-      </div>
-    )
-}
+      <PaginationTwo
+        nextPage={nextPageUrl ? nextPage : null}
+        prevPage={prevPageUrl ? prevPage : null}
+        goToPage={goToPage}
+        pages={pages}
+      />
+    </div>
+  );
+};
 export default Locations;

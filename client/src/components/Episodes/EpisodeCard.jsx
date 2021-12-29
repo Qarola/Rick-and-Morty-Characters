@@ -1,9 +1,9 @@
 import React from "react";
-import { FaMapMarkerAlt } from "react-icons/fa";
-import { GiConcentricCrescents } from "react-icons/gi";
+import { MdOutlineConfirmationNumber } from "react-icons/md";
 import { IoIosPeople } from "react-icons/io";
+import { BsCalendarDate } from "react-icons/bs";
 
-const LocationCard = (props) => {
+const EpisodeCard = (props) => {
   return (
     <>
       <div className="char__li--art" key={props.name + props.id}>
@@ -12,16 +12,16 @@ const LocationCard = (props) => {
             <h2>{props.name}</h2>
           </div>
           <h4>
-            Type: <FaMapMarkerAlt className="card" />
-            {props.type}
+            Episode: <MdOutlineConfirmationNumber className="card" />
+            {props.episode}
           </h4>
           <h4>
-            Dimension: <GiConcentricCrescents className="card" />
-            {props.dimension}
+            AirDate: <BsCalendarDate className="card" />
+            {props.airDate}
           </h4>
           <h4>
-            Residents: <IoIosPeople className="card" />
-            {props.residents}
+            Characters: <IoIosPeople className="card" />
+            {props.charactrs}
           </h4>
         </div>
       </div>
@@ -29,4 +29,4 @@ const LocationCard = (props) => {
   );
 };
 
-export default LocationCard;
+export default EpisodeCard;

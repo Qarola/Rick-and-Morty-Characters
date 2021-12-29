@@ -9,10 +9,8 @@ export function getAllCharacters() {
         console.log(res);
         dispatch({
           type: "GET_ALL_CHARACTERS",
-          payload: res.data
-          
+          payload: res.data,
         });
-       
       })
       .catch((err) => {
         console.error(err);
@@ -89,7 +87,6 @@ export function getCharByGender(gender) {
   }
 }
 
-
 export function getCharacterDetail(id) {
   return function (dispatch) {
     axios
@@ -105,8 +102,6 @@ export function getCharacterDetail(id) {
       });
   };
 }
-
-
 
 export function getAllEpisodes() {
   return function (dispatch) {
@@ -156,7 +151,6 @@ export function getAllLocations() {
   };
 }
 
-
 export function getLocationByType(type) {
   return function (dispatch) {
     axios
@@ -172,4 +166,3 @@ export function getLocationByType(type) {
       });
   };
 }
-

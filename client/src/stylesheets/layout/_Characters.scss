@@ -5,22 +5,34 @@ $colorWhite: white;
 $colorGreen: #59a644;
 $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
+$colorPurple: #180022;
+$colorSeaBlue: rgb(13,172,200);
 
 .grid-card { 
   display: flex;
   flex-direction: column;
   justify-content:space-between;
+  background-color: $colorPurple;
  
  .characters {
-  display: grid;
+  display: flex;
   justify-content: space-around;
   flex-direction: row;
   align-items: center;
   grid-template-rows: auto 1fr auto auto;
   width: 300px;
   padding-bottom: 15px;
-  margin-left: 21.5rem;
-  
+  margin-left: 21.5rem; 
+  grid-gap: 2.5rem;
+ 
+  /* display: grid;
+  grid-gap: 2.5rem;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 450px;
+  max-width: auto;
+  margin: auto;
+  padding: 0;
+  margin-top: 20px; */
 
   @include tablet() {
     padding: 25px;
@@ -36,6 +48,8 @@ $colorDarkBlue: #5b9fa8;
   &__li {
     border-radius: 15px;
     margin-top: 25px;
+    text-decoration: none;
+
 
     &:hover {
       transform: scale(1.02);
@@ -71,3 +85,18 @@ $colorDarkBlue: #5b9fa8;
   }
 }
 }
+
+.link-txt {
+  text-decoration: none;
+  color: $colorSeaBlue; 
+}
+ 
+/* .card-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+  padding: 0;
+  list-style: none;
+} */

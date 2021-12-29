@@ -6,16 +6,24 @@ $colorGreen: #59a644;
 $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
 
-
 .char {
   display: flex;
-  flex-direction:row;
-  align-items: left;
-  background: white;
+  flex-direction: column;
+  justify-content: space-between;
   grid-template-rows: auto 1fr auto auto;
-  width: 300px;
   padding-bottom: 15px;
- 
+  margin: 3rem 3rem 3rem 0;
+  position: absolute;
+  width: 500px;
+  min-height: 500px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+
+  &char:hover {
+    border: 4px solid #a85eb4;
+  }
 
   @include tablet() {
     padding: 25px;
@@ -31,7 +39,7 @@ $colorDarkBlue: #5b9fa8;
   &__li {
     border-radius: 15px;
     margin-top: 25px;
-    
+    text-align: -webkit-match-parent;
 
     &:hover {
       transform: scale(1.02);
@@ -41,6 +49,7 @@ $colorDarkBlue: #5b9fa8;
       border: 4px solid $colorBlue;
       border-radius: 15px;
       box-shadow: 5px 5px 10px $colorDarkBlue;
+      background-color: rgb(215, 221, 223);
 
       @include tablet() {
         text-align: center;
@@ -50,28 +59,49 @@ $colorDarkBlue: #5b9fa8;
       }
 
       &-img {
-        border-radius: 11px;
+        //border-radius: 11px;
+        margin-top: 10px;
+        margin-left: 0.5rem;
+        width: 230px;
+        border-radius: 110px;
+        border: solid 2px rgb(13, 172, 200); //rgb(135, 252, 57);
         @include tablet() {
         }
       }
       &-info {
         padding: 15px;
+
         &-name {
           font-size: 1rem;
           color: $colorBlack;
+          text-decoration: none;
         }
       }
       &-card {
         color: white;
         flex: 1 1 auto;
-        
       }
       &-more-info {
         border-radius: 11px;
-      
       }
     }
   }
 }
 
+.text-name {
+  text-decoration: none;
+}
 
+.property {
+  width: 30%;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.value {
+  text-align: center;
+  width: 80%;
+  display: inline-block;
+  box-sizing: border-box;
+}

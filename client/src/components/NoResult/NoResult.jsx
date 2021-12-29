@@ -7,8 +7,8 @@ const NoResult = (props) => {
       <div className="noResults">
         <p className="noResults__text">
           Oops!{" "}
-          <span className="noResults__text-input">{props.filterName}</span>This is
-          not in this dimension.
+          <span className="noResults__text-input">{props.filterChars}</span>This
+          is not in this dimension.
         </p>
         <img className="noResults__img" src={portal} alt="Not found" />
       </div>

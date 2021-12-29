@@ -5,6 +5,7 @@ $colorWhite: white;
 $colorGreen: #59a644;
 $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
+$colorPurple: #180022;
 
 
 
@@ -12,6 +13,8 @@ $colorDarkBlue: #5b9fa8;
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: $colorPurple;
+  color: $colorWhite;
   &__back {
     padding: 15px;
     @include tablet() {
@@ -24,6 +27,7 @@ $colorDarkBlue: #5b9fa8;
     border-radius: 5px;
     display: flex;
     margin: 0 25px;
+    margin-bottom: 150px;
     width: 250px;
     flex-direction: column;
     align-items: center;
