@@ -14,7 +14,6 @@
     ReactJS, Redux, Sass
 ```
 
-this is a test
 
 
 
