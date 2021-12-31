@@ -1,6 +1,6 @@
 # Rick and Morty Characters
 
-![home]()
+![home](client/src/img/Rick-and-Morty-app.png)
 
 ## This web app was built with the following technologies:
 
