@@ -59,11 +59,15 @@ const Characters = (props) => {
   return (
     <div className="grid-card">
       <InputChar />
-      <div className="chars-list">
-        {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
-          searchedChar.map((e) => (
-            <Link key={e.id} to={`/characters/${e.id}`}>
-              <li className="card-list" key={e.id + e.name}>
+      <div className="characters">
+        <li className="characters">
+          {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
+            searchedChar?.slice((page - 1) * 18, page * 18).map((e) => (
+              <Link
+                className="link-txt"
+                key={e.id + e.name}
+                to={`/characters/${e.id}`}
+              >
                 <CharacterCard
                   key={Math.floor(Math.random() * 10000)}
                   image={e.image}
@@ -73,31 +77,35 @@ const Characters = (props) => {
                   gender={e.gender}
                   location={e.location}
                 />
-              </li>
-            </Link>
-          ))
-        ) : (
-          <div className="characters">
-            <li className="characters">
-              {chars?.slice((page - 1) * 12, page * 12).map((e) => (
-                <Link className="link-txt" key={e.id} to={`/characters/${e.id}`}>
-                  <CharacterCard
+              </Link>
+            ))
+          ) : (
+            <div className="characters">
+              <li className="characters">
+                {chars?.slice((page - 1) * 18, page * 18).map((e) => (
+                  <Link
+                    className="link-txt"
                     key={e.id}
-                    image={e.image}
-                    name={e.name}
-                    status={e.status}
-                    specie={e.specie}
-                    gender={e.gender}
-                    location={e.location}
-                  />
-                </Link>
-              ))}
-            </li>
-          </div>
-        )}
+                    to={`/characters/${e.id}`}
+                  >
+                    <CharacterCard
+                      key={e.id}
+                      image={e.image}
+                      name={e.name}
+                      status={e.status}
+                      specie={e.specie}
+                      gender={e.gender}
+                      location={e.location}
+                    />
+                  </Link>
+                ))}
+              </li>
+            </div>
+          )}
+        </li>
       </div>
       <div className="optionalMessage">{optionalMessage()}</div>
-      <Pagination className="pagtn" allCharacters={chars} page={page} />
+      <Pagination allCharacters={chars} page={page} />
     </div>
   );
 };

@@ -4,37 +4,49 @@ import { useSelector, useDispatch } from "react-redux";
 import PaginationThree from "../Pagination/PaginationThree";
 import EpisodeCard from "./EpisodeCard";
 import FilterByName from "./FilterByName";
-import { getAllEpisodes } from "../../redux/actions";
+import { getAllEpisodes, getEpisodesByName } from "../../redux/actions";
 import NoResult from "../NoResult/NoResult";
 
-const Episodes = () => {
+const Episodes = (props) => {
   const dispatch = useDispatch();
   const searchedEpi = useSelector((state) => state.searchedEpisode);
   const allEpisodes = useSelector((state) => state.allEpisodes);
 
-  //paginated
+  /*   //paginated
   const [currentPage, setCurrentPage] = useState(1); //Comenzamos con página 1
-  const [epiPerPage] = useState(12); //12 por página
+  const [epiPerPage] = useState(12); //12 por página */
 
-  //get current episodes
-  const indexOfLastEpisode = currentPage * epiPerPage;
-  const indexOfFirstEpisode = indexOfLastEpisode - epiPerPage;
-  const currentEpisodes = allEpisodes.slice(
-    indexOfFirstEpisode,
-    indexOfLastEpisode
-  ); //12
+  const [epi, setEpi] = useState([]);
+  const [page, setPage] = useState(1); //it starts in the page 1...
 
   useEffect(() => {
     dispatch(getAllEpisodes());
   }, [dispatch]);
 
-  //Change page
-  const paginated = (pageNumer) => {
-    setCurrentPage(pageNumer);
-  };
+  useEffect(() => {
+    if (props.location.search !== "") {
+      setPage(
+        parseInt(
+          props.location.search.slice(props.location.search.indexOf("=") + 1)
+        )
+      );
+    }
+  }, [props.location.search]);
 
-  const filterEpisodes = allEpisodes.filter((ep) => {
-    return ep.name.toLowerCase();
+  useEffect(() => {
+    if (searchedEpi.length > 0) {
+      setEpi(searchedEpi);
+    } else {
+      setEpi(allEpisodes);
+    }
+  }, [allEpisodes, searchedEpi]);
+
+  useEffect(() => {
+    return getEpisodesByName("");
+  }, []);
+
+  const filterEpisodes = allEpisodes.filter((epi) => {
+    return epi.name.toLowerCase(); //.includes(name.toLowerCase());
   });
 
   //optional message if there is not character with this name...
@@ -46,11 +58,12 @@ const Episodes = () => {
   return (
     <div className="grid-card">
       <FilterByName />
-      <div className="chars-list">
+      <div className="characters">
         {searchedEpi && searchedEpi.length > 0 ? (
-          searchedEpi.map((e) => (
+          searchedEpi?.slice((page - 1) * 18, page * 18).map((e) => (
             <li key={e.id + e.name} className="locations">
               <EpisodeCard
+                className="locations"
                 key={Math.floor(Math.random() * 10000)}
                 id={e.id}
                 name={e.name}
@@ -61,11 +74,15 @@ const Episodes = () => {
             </li>
           ))
         ) : (
-          <div className="locations">
-            <li className="locations">
-              {currentEpisodes?.map((e) => (   //it comes from DB...
+          <div className="charaters">
+            <li className="characters">
+              {epi?.slice((page - 1) * 18, page * 18).map(
+                (
+                  e //it comes from DB...
+                ) => (
                   <li key={e.id + e.name} className="locations">
                     <EpisodeCard
+                      className="locations"
                       key={Math.floor(Math.random() * 10000)}
                       id={e.id}
                       name={e.name}
@@ -81,12 +98,7 @@ const Episodes = () => {
         )}
       </div>
       <div className="optionalMessage">{optionalMessage()}</div>
-
-      <PaginationThree
-        epiPerPage={epiPerPage}
-        allEpisodes={allEpisodes.length}
-        paginated={paginated}
-      />
+      <PaginationThree allEpisodes={epi} page={page} />
     </div>
   );
 };

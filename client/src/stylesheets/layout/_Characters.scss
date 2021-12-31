@@ -6,97 +6,84 @@ $colorGreen: #59a644;
 $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
 $colorPurple: #180022;
-$colorSeaBlue: rgb(13,172,200);
+$colorSeaBlue: rgb(13, 172, 200);
 
-.grid-card { 
+.grid-card {
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
+  justify-content: space-between;
   background-color: $colorPurple;
- 
- .characters {
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
   align-items: center;
-  grid-template-rows: auto 1fr auto auto;
-  width: 300px;
-  padding-bottom: 15px;
-  margin-left: 21.5rem; 
-  grid-gap: 2.5rem;
- 
-  /* display: grid;
-  grid-gap: 2.5rem;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 450px;
-  max-width: auto;
-  margin: auto;
-  padding: 0;
-  margin-top: 20px; */
 
-  @include tablet() {
-    padding: 25px;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 25px;
-    justify-content: center;
-  }
-  @include desktop() {
-    display: grid;
-/*     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
-  }
-  &__li {
-    border-radius: 15px;
-    margin-top: 25px;
-    text-decoration: none;
+  .characters {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    grid-template-rows: auto 1fr auto auto;
+    width: 300px;
+    padding-bottom: 15px;
+    margin-left: 20px;
+    grid-gap: 1rem;
 
-
-    &:hover {
-      transform: scale(1.02);
-      box-shadow: 8x 8px 10px $colorNeonGreen;
+    @include tablet() {
+      padding: 25px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      column-gap: 25px;
+      justify-content: center;
     }
-    &--art {
-      border: 4px solid $colorBlue;
+    @include desktop() {
+      display: grid;
+      /*     grid-template-columns: 1fr 1fr 1fr 1fr 1fr; */
+    }
+
+    &__li {
       border-radius: 15px;
-      box-shadow: 5px 5px 10px $colorDarkBlue;
+      margin-top: 25px;
+      text-decoration: none;
 
-      @include tablet() {
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        width: 250px;
+      &:hover {
+        transform: scale(1.02);
+        box-shadow: 8x 8px 10px $colorNeonGreen;
       }
+      &--art {
+        border: 4px solid $colorBlue;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px $colorDarkBlue;
 
-      &-img {
-        border-radius: 11px;
         @include tablet() {
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          width: 250px;
         }
-      }
-      &-info {
-        padding: 15px;
-        &-name {
-          font-size: 1rem;
+
+        &-img {
+          border-radius: 11px;
+          @include tablet() {
+          }
         }
-      }
-      &-Link {
-        color:$colorBlack;
+        &-info {
+          padding: 15px;
+          &-name {
+            font-size: 1rem;
+          }
+        }
+        &-Link {
+          color: $colorBlack;
+        }
       }
     }
   }
-}
 }
 
 .link-txt {
   text-decoration: none;
-  color: $colorSeaBlue; 
+  color: $colorSeaBlue;
 }
- 
-/* .card-list {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 30px;
-  padding: 0;
-  list-style: none;
-} */
+
+.optionalMessage {
+  padding: top 0.5em;
+}

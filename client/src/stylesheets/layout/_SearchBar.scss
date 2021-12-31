@@ -5,17 +5,24 @@
   align-items: center;
   margin-top: 45px;
 
+  @media all and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+  }
+
   &__input-text {
     margin: 0.25rem;
     padding: 0.5rem;
-    width: 270px;
-    background-color: rgb(13,172,200); //#59abb7; 
+    width: 290px;
+    background-color: rgb(13, 172, 200); //#59abb7;
     border: none;
     border-radius: 0.6rem;
     font-size: 1rem;
     outline: none;
     vertical-align: middle;
     border: 2px solid white;
+    margin-right: 3rem;
   }
 
   ::placeholder {
@@ -27,7 +34,7 @@
     margin-right: 30px;
     padding: 0.5rem;
     width: 205px;
-    background-color: rgb(13,172,200); //#59abb7; 
+    background-color: rgb(13, 172, 200); //#59abb7;
     border: none;
     border-radius: 0.6rem;
     font-size: 1rem;
@@ -46,7 +53,7 @@
     margin-left: 30px;
     padding: 0.5rem;
     width: 100px;
-    background-color:rgb(13,172,200);
+    background-color: rgb(13, 172, 200);
     border: none;
     border-radius: 0.6rem;
     font-size: 1rem;
@@ -58,7 +65,7 @@
 
   &__select:hover {
     background-color: white;
-    color: #180022;//#59abb7;
+    color: #180022; //#59abb7;
   }
 }
 
@@ -68,37 +75,13 @@
   width: 10px;
 }
 
-/* .btn-search {
-  width: 15px;
-} */
-
 .text {
   text-decoration: none;
   color: white;
 }
 .text:hover {
   color: #180022;
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* .form {
   display: flex;

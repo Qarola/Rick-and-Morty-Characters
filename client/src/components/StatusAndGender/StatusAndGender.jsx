@@ -11,12 +11,13 @@ const StatusAndGender = (props) => {
   return (
     <div className="grid-card">
       <SearchBar setFilter={props.setFilter} />
-      <div className="chars-list">
+      <div className="characters">
         {getStatus && getStatus.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
           getStatus.map((e) => (
             <Link key={e.id} to={`/characters/${e.id}`}>
               <li key={e.id + e.name} className="chararacters">
                 <CharacterCard
+                  className="characters"
                   key={e.id}
                   image={e.image}
                   name={e.name}
@@ -35,6 +36,7 @@ const StatusAndGender = (props) => {
                 getGender.map((e) => (
                   <Link key={e.id} to={`/characters/${e.id}`}>
                     <CharacterCard
+                      className="characters"
                       key={e.id}
                       image={e.image}
                       name={e.name}

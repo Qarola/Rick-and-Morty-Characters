@@ -20,7 +20,7 @@ import logo from "../../img/rick-morty-header.jpg";
 
 function Header() {
   return (
-    <header className="header">
+    <header id="header">
       <img className="header" src={logo} alt="logo rick and morty" />
     </header>
   );

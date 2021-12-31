@@ -6,6 +6,7 @@ $colorGreen: #59a644;
 $colorBlue: #00b0c8;
 $colorDarkBlue: #5b9fa8;
 $colorPurple: #180022;
+$colorSeaBlue: rgb(13,172,200);
 
 
 
@@ -16,7 +17,10 @@ $colorPurple: #180022;
   background-color: $colorPurple;
   color: $colorWhite;
   &__back {
-    padding: 15px;
+    padding: 10px;
+    background-color: transparent;
+    margin-left: 32rem;
+    color:$colorWhite;
     @include tablet() {
       align-self: flex-start;
     }
@@ -38,6 +42,7 @@ $colorPurple: #180022;
 
     &--img {
       width: 246px;
+      border-radius: 160px;
       @include tablet() {
         width: auto;
       }

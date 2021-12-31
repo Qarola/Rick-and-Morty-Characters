@@ -5,6 +5,7 @@ import CharacterDetail from './components/CharacterDetail/CharacterDetail.jsx';
 import Episodes from './components/Episodes/Episodes.jsx';
 import Locations from './components/Locations/Locations.jsx';
 import StatusAndGender from "./components/StatusAndGender/StatusAndGender.jsx";
+import Footer from "./components/Footer/Footer.jsx"
 import { Route } from "react-router-dom"; 
 
 import "./stylesheets/App.scss";
@@ -22,6 +23,7 @@ function App() {
       <Route path="/locations" component={Locations} /> 
       <Route path="/episodes" component={Episodes} />
     </React.Fragment>
+    <Footer />
     </div>  
 
   );

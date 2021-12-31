@@ -50,13 +50,13 @@ const SearchBar = (props) => {
 
   return (
     <div className="form">
-      <div className="link">
-        <button>
-          <Link to="/">Characters</Link>{" "}
+      <div>
+        <button className="form__select">
+          <Link  className="text" to="/">Characters</Link>{" "}
         </button>
       </div>
       <select
-        className="dropdown"
+        className="form__dropdown"
         type="submit"
         id="status"
         placeholder="Search by character status"
@@ -71,7 +71,7 @@ const SearchBar = (props) => {
       </select>
 
       <select
-        className="dropdown"
+        className="form__dropdown"
         type="submit"
         id="gender"
         placeholder="Search by character gender"
@@ -84,9 +84,9 @@ const SearchBar = (props) => {
         <option value="Male">Male</option>
         <option value="Unknown">Unknown</option>
       </select>
-      <button className="btn-clear" type="submit" onClick={onClear}>
+      <button className="form__select" type="submit" onClick={onClear}>
         {" "}
-        <Link to="/statusandgender">Reset</Link>
+        <Link className="text" to="/statusandgender">Reset</Link>
       </button>
     </div>
   );

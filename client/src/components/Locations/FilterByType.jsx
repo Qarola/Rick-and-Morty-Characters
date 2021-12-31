@@ -73,13 +73,15 @@ const FilterByType = (props) => {
 
   return (
     <div className="form">
-      <div className="link">
-        <button>
-          <Link to="/">Characters</Link>{" "}
+      <div>
+        <button className="form__select-btn">
+          <Link className="text" to="/">
+            Characters
+          </Link>{" "}
         </button>
       </div>
       <select
-        className="dropdown"
+        className="form__dropdown"
         type="text"
         id="type"
         placeholder="Search by location type"
@@ -87,7 +89,7 @@ const FilterByType = (props) => {
         onChange={handleType}
         onClick={handleSubmitType}
       >
-        <option>Search by location by type</option>
+        <option>Search location by type</option>
         {onlyTypes.map((el) => (
           <>
             <option key={onlyTypes} value={el.item}>
@@ -96,9 +98,11 @@ const FilterByType = (props) => {
           </>
         ))}
       </select>
-      <button className="btn-clear" type="submit" onClick={onClear}>
+      <button className="form__select-btn" type="submit" onClick={onClear}>
         {" "}
-        <Link to="/locations">Reset</Link>
+        <Link className="text" to="/locations">
+          Reset
+        </Link>
       </button>
     </div>
   );

@@ -2,10 +2,9 @@ import React from "react";
 //import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import "./Pagination.css";
 
 export default function Pagination({ allCharacters, page }) {
-  const totalPages = Math.ceil(allCharacters.length / 9); // se obtiene el total de páginas según el número de tarjetas
+  const totalPages = Math.ceil(allCharacters.length / 18); // se obtiene el total de páginas según el número de tarjetas
  
   const totalPagesToArray = [];
   for (let i = 1; i <= totalPages; i++) {

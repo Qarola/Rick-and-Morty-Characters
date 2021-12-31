@@ -6,12 +6,25 @@ import { BsCalendarDate } from "react-icons/bs";
 const EpisodeCard = (props) => {
   return (
     <>
-      <div className="char__li--art" key={props.name + props.id}>
+      <div className="char__li--art--epi" key={props.name + props.id}>
         <div className="char__li--art-info">
-          <div className="char__li--art-info-name" key={props.id}>
-            <h2>{props.name}</h2>
+          <div className="char__li--art-info-name-loc" key={props.id}>
+          <h2>{props.name}</h2>
           </div>
-          <h4>
+          <div className="property-loc">Episode:
+          <div className="value-loc">{props.episode}</div>
+          <MdOutlineConfirmationNumber className="card" />
+          </div>
+          <div className="property-loc">Air Date:
+          <div className="value-loc">{props.airDate} </div>
+          <BsCalendarDate className="card" />
+          </div>
+          <div className="property-loc">Characters:
+          <div className="value-loc">{props.charactrs} </div>
+          <IoIosPeople className="card" />
+            </div>
+
+        {/*   <h4>
             Episode: <MdOutlineConfirmationNumber className="card" />
             {props.episode}
           </h4>
@@ -22,7 +35,7 @@ const EpisodeCard = (props) => {
           <h4>
             Characters: <IoIosPeople className="card" />
             {props.charactrs}
-          </h4>
+          </h4> */}
         </div>
       </div>
     </>

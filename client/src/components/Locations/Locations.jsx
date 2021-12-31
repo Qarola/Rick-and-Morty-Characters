@@ -58,36 +58,40 @@ const Locations = () => {
   return (
     <div className="grid-card">
       <FilterByType />
-      <div className="chars-list">
-        {searchedLoc && searchedLoc.length > 0 ? (
-          searchedLoc.map((e) => (
-            <li key={e.id + e.name} className="locations">
-              <LocationCard
-                key={Math.floor(Math.random() * 10000)}
-                name={e.name}
-                type={e.type}
-                dimension={e.dimension}
-                residents={e.residents}
-              />
-            </li>
-          ))
-        ) : (
-          <div className="locations">
-            <li className="locations">
-              {locations?.map((e) => (
-                <li key={e.id + e.name} className="locations">
-                  <LocationCard
-                    key={Math.floor(Math.random() * 10000)}
-                    name={e.name}
-                    type={e.type}
-                    dimension={e.dimension}
-                    residents={e.residents.length}
-                  />
-                </li>
-              ))}
-            </li>
-          </div>
-        )}
+      <div className="characters">
+        <li className="characters">
+          {searchedLoc && searchedLoc.length > 0 ? (
+            searchedLoc.map((e) => (
+              <div key={e.id + e.name}>
+                <LocationCard
+                  className="locations"
+                  key={Math.floor(Math.random() * 10000)}
+                  name={e.name}
+                  type={e.type}
+                  dimension={e.dimension}
+                  residents={e.residents}
+                />
+              </div>
+            ))
+          ) : (
+            <div className="characters">
+              <li className="characters">
+                {locations?.map((e) => (
+                  <li key={e.id + e.name} className="locations">
+                    <LocationCard
+                      className="locations"
+                      key={Math.floor(Math.random() * 10000)}
+                      name={e.name}
+                      type={e.type}
+                      dimension={e.dimension}
+                      residents={e.residents.length}
+                    />
+                  </li>
+                ))}
+              </li>
+            </div>
+          )}
+        </li>
       </div>
       <PaginationTwo
         nextPage={nextPageUrl ? nextPage : null}

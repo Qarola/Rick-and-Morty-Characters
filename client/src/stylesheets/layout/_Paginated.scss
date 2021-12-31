@@ -4,11 +4,14 @@
 	justify-content: center;
 	margin: 0;
 	padding: 15px;
-	background-color: #f4f6ff;
+	//background-color: #f4f6ff;
+	border-radius: 100px;
 }
 
 .pagination {
-    display: inline-block;
+    //display: inline-block;
+	float: left;
+	border-radius: 100px;
 	@media only screen and (min-width: 300px) and (max-width: 800px) {
 		display: flex;
 	}
@@ -26,6 +29,7 @@
 	border-radius: 15px;
 	transition: width 2s;
 	outline: none;
+	border-radius: 100px;
 	cursor: pointer;
 	&:hover {
 		width: 100;

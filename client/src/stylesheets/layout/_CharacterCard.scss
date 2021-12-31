@@ -20,7 +20,6 @@ $colorDarkBlue: #5b9fa8;
   background-repeat: no-repeat;
   background-size: cover;
 
-
   &char:hover {
     border: 4px solid #a85eb4;
   }
@@ -50,12 +49,33 @@ $colorDarkBlue: #5b9fa8;
       border-radius: 15px;
       box-shadow: 5px 5px 10px $colorDarkBlue;
       background-color: rgb(215, 221, 223);
+      height: 410px; //hace que todas mis cards sean del mismo tamaño.
 
       @include tablet() {
         text-align: center;
         display: flex;
         flex-direction: column;
         width: 250px;
+      }
+      &--loc {
+        background: url("../../img/stars-gif.gif");
+        color: $colorWhite;
+        height: 220px;
+        width: 355px;
+        border: 4px solid $colorBlue;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px $colorDarkBlue;
+        margin-left: 1rem;
+      }
+      &--epi {
+        background: url("../../img/episodes-stars.gif");
+        color: $colorWhite;
+        height: 220px;
+        width: 355px;
+        border: 4px solid $colorBlue;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px $colorDarkBlue;
+        margin-right: 2.5rem;
       }
 
       &-img {
@@ -69,12 +89,16 @@ $colorDarkBlue: #5b9fa8;
         }
       }
       &-info {
-        padding: 15px;
+        padding: 20px;
 
         &-name {
           font-size: 1rem;
           color: $colorBlack;
           text-decoration: none;
+          padding-bottom: 10px;
+        }
+        &-loc {
+          color: $colorWhite;
         }
       }
       &-card {
@@ -104,4 +128,28 @@ $colorDarkBlue: #5b9fa8;
   width: 80%;
   display: inline-block;
   box-sizing: border-box;
+}
+
+.property-loc {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  width: 30%;
+  //display: inline-block;
+  box-sizing: border-box;
+  text-align: right;
+  float: left; //--> alinea horizontalmente <div>
+}
+
+.value-loc {
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  text-align: center;
+  width: 90%;
+  // display: inline-block;
+  box-sizing: border-box;
+}
+
+.card {
+  margin-top: 1.5rem;
+  margin-right: 2rem;
 }

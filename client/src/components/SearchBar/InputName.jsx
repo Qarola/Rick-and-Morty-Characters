@@ -20,7 +20,7 @@ const InputChar = () => {
   };
 
   return (
-    <form className="form"  onSubmit={handleSubmitChar}>
+    <form className="form" onSubmit={handleSubmitChar}>
       <div>
         <button className="form__select">
           <Link to="/" onClick={handleSubmitChar} className="text">
@@ -30,38 +30,42 @@ const InputChar = () => {
       </div>
       <div>
         <button className="form__select">
-          <Link to="/locations" className="text">Locations</Link>{" "}
+          <Link to="/locations" className="text">
+            Locations
+          </Link>{" "}
         </button>
       </div>
       <div>
         <button className="form__select">
-          <Link to="/episodes" className="text">Episodes</Link>{" "}
+          <Link to="/episodes" className="text">
+            Episodes
+          </Link>{" "}
         </button>
       </div>
       <div>
         <button className="form__text-link">
-          <Link to="/statusandgender" className="text">Filter by status or gender</Link>
+          <Link to="/statusandgender" className="text">
+            Filter by status or gender
+          </Link>
         </button>
       </div>
- 
-        <input
-          type="text"
-          name="name"
-          id="name"
-          placeholder="Search by character name, e.g: Morty"
-          value={name}
-          onChange={handleInputChangeChar}
-         
-          className="form__input-text"
-        />
-       {/*  <button
+
+      <input
+        type="text"
+        name="name"
+        id="name"
+        placeholder="Search by character name, e.g: Morty"
+        value={name}
+        onChange={handleInputChangeChar}
+        className="form__input-text"
+      />
+      {/*  <button
           className="btn"
           type="submit"
          
         >
           <RiSearch2Line />
         </button> */}
-    
     </form>
   );
 };
