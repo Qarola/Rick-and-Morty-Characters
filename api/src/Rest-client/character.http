@@ -23,7 +23,7 @@ GET  http://localhost:3001/episodes/?name=M. Night Shaym-Aliens!
 GET  http://localhost:3001/locations
 
 ###
-GET  http://localhost:3001/locations?type=Planet
+GET  http://localhost:3001/locations?type=Quasar
 
 
 ###

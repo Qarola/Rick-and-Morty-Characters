@@ -14,7 +14,6 @@ const getAllCharacters = async (req, res) => {
             [Op.like]: `%${name}%`,
           },
         },
-     
       });
       return res.status(200).json(charDb);
     } catch (error) {
@@ -34,19 +33,17 @@ const getAllCharacters = async (req, res) => {
       res.status(500);
       return;
     }
-   
   }
 };
 
 const getAllCharactersByStatus = async (req, res) => {
   let { status } = req.query;
   console.log(status, "this is a query");
-  if (status ) {
+  if (status) {
     try {
-      let urlApi = `https://rickandmortyapi.com/api/character?status=${status}`
-      axios.get(urlApi)
-      .then((resp) => {
-        let response = resp.data.results.map((c) => ({ 
+      let urlApi = `https://rickandmortyapi.com/api/character?status=${status}`;
+      axios.get(urlApi).then((resp) => {
+        let response = resp.data.results.map((c) => ({
           id: c.id,
           image: c.image,
           name: c.name,
@@ -55,28 +52,27 @@ const getAllCharactersByStatus = async (req, res) => {
           type: c.type,
           gender: c.gender,
           location: c.location.name,
-          episode: c.episode.length
-        }))
-      // console.log(response)
-       return res.send(response);
-      })
+          episode: c.episode.length,
+        }));
+        // console.log(response)
+        return res.send(response);
+      });
     } catch (error) {
       console.log(error);
       res.status(500);
       return;
     }
   }
-}
+};
 
 const getAllCharactersByGender = async (req, res) => {
   let { gender } = req.query;
-  console.log( gender, "this is a query");
+  console.log(gender, "this is a query");
   if (gender) {
     try {
-      let urlApi = `https://rickandmortyapi.com/api/character?gender=${gender}` 
-      axios.get(urlApi)
-      .then((resp) => {
-        let response = resp.data.results.map((c) => ({ 
+      let urlApi = `https://rickandmortyapi.com/api/character?gender=${gender}`;
+      axios.get(urlApi).then((resp) => {
+        let response = resp.data.results.map((c) => ({
           id: c.id,
           image: c.image,
           name: c.name,
@@ -85,20 +81,18 @@ const getAllCharactersByGender = async (req, res) => {
           type: c.type,
           gender: c.gender,
           location: c.location,
-          episode: c.episode.length
-        }))
-       //console.log(response)
+          episode: c.episode.length,
+        }));
+        //console.log(response)
         return res.status(200).json(response);
-         
-      })
+      });
     } catch (error) {
       console.log(error);
       res.status(500);
       return;
     }
   }
-}
-
+};
 
 const getCharacterById = async (req, res) => {
   const { id } = req.params;
@@ -107,7 +101,7 @@ const getCharacterById = async (req, res) => {
     let character = await Character.findOne({
       where: {
         id: id,
-      }
+      },
     });
     return res.status(200).json(character);
   } catch (error) {
@@ -117,12 +111,9 @@ const getCharacterById = async (req, res) => {
   }
 };
 
-
-
 module.exports = {
   getAllCharacters,
   getAllCharactersByStatus,
   getAllCharactersByGender,
   getCharacterById,
 };
-
