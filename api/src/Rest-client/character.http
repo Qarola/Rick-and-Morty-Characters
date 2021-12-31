@@ -33,6 +33,10 @@ GET  http://localhost:3001/locations/?name=Earth
 GET https://rickandmortyapi.com/api/character
 
 ###
+GET https://rickandmortyapi.com/api/character/5
+
+
+###
 GET https://rickandmortyapi.com/api/character?status=unknown
 
 ###
