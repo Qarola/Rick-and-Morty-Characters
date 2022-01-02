@@ -6,11 +6,9 @@ import Episodes from './components/Episodes/Episodes.jsx';
 import Locations from './components/Locations/Locations.jsx';
 import StatusAndGender from "./components/StatusAndGender/StatusAndGender.jsx";
 import Footer from "./components/Footer/Footer.jsx"
-import initialization from "../../Firebase/firebase.init";
 import { Route } from "react-router-dom"; 
 import "./stylesheets/App.scss";
 
-initialization();
 
 function App() {
   return (
