@@ -12,17 +12,17 @@
   }
 
   &__input-text {
-    margin: 0.25rem;
+    margin: 1rem;
     padding: 0.5rem;
     width: 290px;
     background-color: rgb(13, 172, 200); //#59abb7;
     border: none;
-    border-radius: 0.6rem;
+    border-radius: 1.2rem;
     font-size: 1rem;
     outline: none;
     vertical-align: middle;
     border: 2px solid white;
-    margin-right: 3rem;
+    margin-right: 1rem;
   }
 
   ::placeholder {
@@ -36,7 +36,7 @@
     width: 205px;
     background-color: rgb(13, 172, 200); //#59abb7;
     border: none;
-    border-radius: 0.6rem;
+    border-radius: 1.2rem;
     font-size: 1rem;
     outline: none;
     vertical-align: middle;
@@ -55,7 +55,7 @@
     width: 100px;
     background-color: rgb(13, 172, 200);
     border: none;
-    border-radius: 0.6rem;
+    border-radius: 1.2rem;
     font-size: 1rem;
     outline: none;
     vertical-align: middle;
@@ -83,119 +83,4 @@
   color: #180022;
 }
 
-/* .form {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 30px;
-  font-size: 18px;
-  display:inline-flexbox;
-  flex-direction: column;
-  border-bottom: 2px solid rgb(58, 90, 64);
-  @media all and (min-width: 768px) {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    padding-bottom: 50px;
-   /*  background: black; 
-  }
-  @media all and (min-width: 1200px) {
-    display: flex;
-    flex-direction: row;
-  }
-  &__dropdown {
-  /*   color: #91cdee; 
-  color: rgb(47, 62, 70);
-    text-align: center;
-    display: block;
-    margin: 12px;
-    font-size: 18px;
-    @media all and (min-width: 768px) {
-      text-align: left;
-    }
-  }
-  &__input-name {
-/*     color: rgb(47, 62, 70); 
-    color: white;
-    display: block;
-    margin-top: 10px;
-    margin-right: 12px;
-    width: 150px;
-    height: 40px;
-    padding: 10px;
-    border-radius: 3px;
-    text-decoration: none;
-    //background-color: white;
-    cursor: pointer;
-  }
-  &__btn {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    margin: 10px;
-    color: rgb(47, 141, 125);
-    cursor: pointer;
-    margin-top: 40px;
-    @media all and (min-width: 1200px) {
-      margin-top: 0px;
 
-      
-    }
-  }
-  &__input {
-    text-decoration: none;
-  outline: none;
-  display: inline-block;
-  margin: 25px 20px;
-  padding: 15px 50px;
-  overflow: hidden;
-  border: 2px solid;
-  border-bottom-width: 4px;
-  text-transform: uppercase;
-  border-radius: 10px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #9ADADA;
-  background-color: #180022;
-  transition: color .3s, background .5s;
-  cursor: pointer;
-
-  }
-} 
-
-.link {
-  text-decoration: none;
-  outline: none;
-  display: inline-block;
-  margin: 10px 20px;
-  padding: 15px 50px;
-  overflow: hidden;
-  border: 2px solid;
-  border-bottom-width: 4px;
-  text-transform: uppercase;
-  border-radius: 10px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #9ADADA;
-  background-color: #180022;
-  transition: color .3s, background .5s;
-  cursor: pointer;
-  @include tablet() {
-      flex-direction: row;
-      width: auto;
-    }
-}
-.link:hover {
-  animation: stripes .75s infinite linear;
-  background: linear-gradient(45deg, #9ADADA 25%, #180022 25%, #180022 50%, #9ADADA 50%, #9ADADA 75%, #180022 75%, #180022);
-  background-size: 10px 10px;
-  color: #F9F675;
-}
-@keyframes stripes {
-  0% {background-position: 0 0;}
-  100% {background-position: 50px 0;}
-}
-
- */

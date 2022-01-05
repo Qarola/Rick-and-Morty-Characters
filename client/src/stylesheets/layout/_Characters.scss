@@ -24,7 +24,8 @@ $colorSeaBlue: rgb(13, 172, 200);
     grid-template-rows: auto 1fr auto auto;
     width: 300px;
     padding-bottom: 15px;
-    margin-left: 20px;
+    margin-left: 30px;
+    margin-right: 10px;
     grid-gap: 1rem;
 
     @include tablet() {
