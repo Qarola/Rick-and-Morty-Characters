@@ -59,6 +59,7 @@ const Characters = (props) => {
   return (
     <div className="grid-card">
       <InputChar />
+      <div className="optionalMessage">{optionalMessage()}</div>
       <div className="characters">
         <li className="characters">
           {searchedChar && searchedChar.length > 0 ? ( //Cuando se busque por nombre, se renderizará este primer bloque de código. Si no hay búsqueda, se renderizará solo el segundo bloque de código.
@@ -104,7 +105,6 @@ const Characters = (props) => {
           )}
         </li>
       </div>
-      <div className="optionalMessage">{optionalMessage()}</div>
       <Pagination allCharacters={chars} page={page} />
     </div>
   );
