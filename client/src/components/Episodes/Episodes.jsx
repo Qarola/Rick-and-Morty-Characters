@@ -58,6 +58,7 @@ const Episodes = (props) => {
   return (
     <div className="grid-card">
       <FilterByName />
+      <div className="optionalMessage">{optionalMessage()}</div>
       <div className="characters">
         {searchedEpi && searchedEpi.length > 0 ? (
           searchedEpi?.slice((page - 1) * 18, page * 18).map((e) => (
@@ -97,7 +98,6 @@ const Episodes = (props) => {
           </div>
         )}
       </div>
-      <div className="optionalMessage">{optionalMessage()}</div>
       <PaginationThree allEpisodes={epi} page={page} />
     </div>
   );
