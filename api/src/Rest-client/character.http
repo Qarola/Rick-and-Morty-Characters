@@ -1,0 +1,80 @@
+GET http://localhost:3001/characters
+
+###
+GET http://localhost:3001/characters?name=eddie
+
+###
+GET http://localhost:3001/charbystatus?status=unknown
+
+###
+GET http://localhost:3001/charbyGender?gender=female
+
+###
+GET http://localhost:3001/characters/3
+
+###
+GET  http://localhost:3001/episodes
+
+
+###
+GET  http://localhost:3001/episodes/?name=M. Night Shaym-Aliens!
+
+###
+GET  http://localhost:3001/locations
+
+###
+GET  http://localhost:3001/locations?type=Quasar
+
+
+###
+GET  http://localhost:3001/locations/?name=Earth
+
+###
+GET https://rickandmortyapi.com/api/character
+
+###
+GET https://rickandmortyapi.com/api/character/5
+
+
+###
+GET https://rickandmortyapi.com/api/character?status=unknown
+
+###
+GET https://rickandmortyapi.com/api/character?gender=female
+
+###
+GET https://rickandmortyapi.com/api/character/?page=1
+
+###
+GET https://rickandmortyapi.com/api/episode
+
+###
+
+GET https://rickandmortyapi.com/api/location
+
+###
+GET https://rickandmortyapi.com/api/location/?type=Planet
+
+###
+GET https://rickandmortyapi.com/api/location/?page=2
+
+###
+GET https://rickandmortyapi.com/api/character/?page=3
+
+
+###
+GET https://rickandmortyapi.com/api/character/?page=4
+
+###
+GET http://localhost:3001/nextChar?page=2
+
+###
+GET http://localhost:3001/nextEpi?page=3
+
+###
+GET http://localhost:3001/nextLoc?page=4
+
+
+
+###
+GET http://localhost:3001/filter

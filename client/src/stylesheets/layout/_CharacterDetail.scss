@@ -1,0 +1,69 @@
+//PALETTES
+$colorBlack: #000000;
+$colorNeonGreen: #3eff3f;
+$colorWhite: white;
+$colorGreen: #59a644;
+$colorBlue: #00b0c8;
+$colorDarkBlue: #5b9fa8;
+$colorPurple: #180022;
+$colorSeaBlue: rgb(13,172,200);
+
+
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $colorPurple;
+  color: $colorWhite;
+  &__back {
+    padding: 10px;
+    background-color: transparent;
+    margin-left: 32rem;
+    color:$colorWhite;
+    @include tablet() {
+      align-self: flex-start;
+    }
+  }
+  &__art {
+    box-shadow: 5px 5px 10px $colorNeonGreen;
+    border: 2px solid $colorBlue;
+    border-radius: 5px;
+    display: flex;
+    margin: 0 25px;
+    margin-bottom: 150px;
+    width: 250px;
+    flex-direction: column;
+    align-items: center;
+    @include tablet() {
+      flex-direction: row;
+      width: auto;
+    }
+
+    &--img {
+      width: 246px;
+      border-radius: 160px;
+      @include tablet() {
+        width: auto;
+      }
+    }
+    &--info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 25px;
+      &-name {
+        padding-bottom: 20px;
+        font-weight: 200;
+      
+        letter-spacing: 5px;
+        color: $colorBlue;
+        font-size: 2rem;
+        text-shadow: 1px 2px $colorNeonGreen;
+      }
+      &-all {
+        padding-bottom: 5px;
+      }
+    }
+  }
+}
