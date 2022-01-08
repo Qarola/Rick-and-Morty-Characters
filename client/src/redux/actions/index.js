@@ -1,5 +1,5 @@
 import axios from "axios";
-const HOST_URL = 'https://rick-and-morty-chars.web.app'
+const HOST_URL = 'https://rick-and-morty-chars-1.herokuapp.com'
 
 export function getAllCharacters() {
   return function (dispatch) {
