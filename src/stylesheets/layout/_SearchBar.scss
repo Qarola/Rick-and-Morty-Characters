@@ -1,0 +1,86 @@
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+
+  @media all and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+  }
+
+  &__input-text {
+    margin: 1rem;
+    padding: 0.5rem;
+    width: 290px;
+    background-color: rgb(13, 172, 200); //#59abb7;
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+    border: 2px solid white;
+    margin-right: 1rem;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+  &__text-link {
+    margin: 0.25rem;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 0.5rem;
+    width: 205px;
+    background-color: rgb(13, 172, 200); //#59abb7;
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+    border: 2px solid white;
+    color: white;
+  }
+
+  &__text-link:hover {
+    background-color: white;
+  }
+
+  &__select {
+    margin: 0.25rem;
+    margin-left: 30px;
+    padding: 0.5rem;
+    width: 100px;
+    background-color: rgb(13, 172, 200);
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+    border: 2px solid white;
+    color: white;
+  }
+
+  &__select:hover {
+    background-color: white;
+    color: #180022; //#59abb7;
+  }
+}
+
+.btn {
+  margin-left: 5px;
+  padding: 5px;
+  width: 10px;
+}
+
+.text {
+  text-decoration: none;
+  color: white;
+}
+.text:hover {
+  color: #180022;
+}
+
+

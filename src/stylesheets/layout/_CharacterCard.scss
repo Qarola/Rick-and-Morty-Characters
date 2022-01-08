@@ -1,0 +1,155 @@
+//PALETTES
+$colorBlack: #000000;
+$colorNeonGreen: #3eff3f;
+$colorWhite: white;
+$colorGreen: #59a644;
+$colorBlue: #00b0c8;
+$colorDarkBlue: #5b9fa8;
+
+.char {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-template-rows: auto 1fr auto auto;
+  padding-bottom: 15px;
+  margin: 3rem 3rem 3rem 0;
+  position: absolute;
+  width: 500px;
+  min-height: 500px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &char:hover {
+    border: 4px solid #a85eb4;
+  }
+
+  @include tablet() {
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 25px;
+    justify-content: center;
+  }
+  @include desktop() {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  &__li {
+    border-radius: 15px;
+    margin-top: 25px;
+    text-align: -webkit-match-parent;
+
+    &:hover {
+      transform: scale(1.02);
+      box-shadow: 8x 8px 10px $colorNeonGreen;
+    }
+    &--art {
+      border: 4px solid $colorBlue;
+      border-radius: 15px;
+      box-shadow: 5px 5px 10px $colorDarkBlue;
+      background-color: rgb(215, 221, 223);
+      height: 410px; //hace que todas mis cards sean del mismo tamaño.
+
+      @include tablet() {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+      }
+      &--loc {
+        background: url("../../img/stars-gif.gif");
+        color: $colorWhite;
+        height: 220px;
+        width: 355px;
+        border: 4px solid $colorBlue;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px $colorDarkBlue;
+        margin-left: 1rem;
+      }
+      &--epi {
+        background: url("../../img/episodes-stars.gif");
+        color: $colorWhite;
+        height: 220px;
+        width: 355px;
+        border: 4px solid $colorBlue;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px $colorDarkBlue;
+        margin-right: 2.5rem;
+      }
+
+      &-img {
+        //border-radius: 11px;
+        margin-top: 10px;
+        margin-left: 0.5rem;
+        width: 230px;
+        border-radius: 110px;
+        border: solid 2px rgb(13, 172, 200); //rgb(135, 252, 57);
+        @include tablet() {
+        }
+      }
+      &-info {
+        padding: 20px;
+
+        &-name {
+          font-size: 1rem;
+          color: $colorBlack;
+          text-decoration: none;
+          padding-bottom: 10px;
+        }
+        &-loc {
+          color: $colorWhite;
+        }
+      }
+      &-card {
+        color: white;
+        flex: 1 1 auto;
+      }
+      &-more-info {
+        border-radius: 11px;
+      }
+    }
+  }
+}
+
+.text-name {
+  text-decoration: none;
+}
+
+.property {
+  width: 30%;
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: right;
+}
+
+.value {
+  text-align: center;
+  width: 80%;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.property-loc {
+  margin-top: 1rem;
+  margin-right: 0.5rem;
+  width: 30%;
+  //display: inline-block;
+  box-sizing: border-box;
+  text-align: right;
+  float: left; //--> alinea horizontalmente <div>
+}
+
+.value-loc {
+  margin-top: 1rem;
+  margin-left: 1.2rem;
+  text-align: center;
+  width: 90%;
+  // display: inline-block;
+  box-sizing: border-box;
+}
+
+.card {
+  margin-top: 1.5rem;
+  margin-right: 2rem;
+}

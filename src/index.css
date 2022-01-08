@@ -1,0 +1,22 @@
+* {   
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+ /* permite abarcar todo el ancho de la pantalla... */
+
+
+ @media (max-width: 800px) {
+  body {
+    width: 350px;
+  }
+}
+
+
+@media (max-width: 500px) {
+  body {
+    width: 550px;
+  }
+}
+
+
