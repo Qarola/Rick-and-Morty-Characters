@@ -1,0 +1,119 @@
+.grid-card { 
+/*   display: flex;
+  background-color: $colorPurple;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-x: auto;
+  gap: 2px; */
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  background-color: $colorPurple;
+  align-items: center; 
+}
+
+.locations {
+ /*  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center; */
+   display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  grid-template-rows: auto 1fr auto auto;
+  width: 100%;
+  padding-bottom: 15px;
+  margin-left: 20px; 
+  grid-gap: 2.5rem; 
+  
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 45px;
+
+  @media all and (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    font-size: 24px;
+  }
+
+  &__dropdown {
+    margin: 2rem;
+    padding: 0.5rem;
+    width: 270px;
+    background-color: rgb(13,172,200); //#59abb7; 
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+    border: 2px solid white;
+    margin-right: 1rem;
+    color: white;
+  }
+
+  ::placeholder {
+    color: white;
+  }
+  &__text-link {
+    margin: 2rem;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 0.5rem;
+    width: 205px;
+    background-color: rgb(13,172,200); //#59abb7; 
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+    border: 2px solid white;
+    color: white;
+  }
+
+  &__text-link:hover {
+    background-color: white;
+  }
+
+  &__select-btn {
+    margin: 2rem;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    padding: 0.5rem;
+    width: 100px;
+    background-color:rgb(13,172,200);
+    border: none;
+    border-radius: 1.2rem;
+    font-size: 1rem;
+    outline: none;
+    vertical-align: middle;
+    border: 2px solid white;
+    color: white;
+  }
+
+  &__select-btn:hover {
+    background-color: white;
+    color: #180022;//#59abb7;
+  }
+}
+
+.text {
+  text-decoration: none;
+  color: white;
+}
+.text:hover {
+  color: #180022;
+}
+
+.link-txt {
+  text-decoration: none;
+  color: $colorSeaBlue; 
+}
